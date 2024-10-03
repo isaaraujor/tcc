@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    height: 100vh;
+}
+h2{
+    color: rgba(45,0,108,1);
+}
+
+.navb{
+    height: 12vh !important;
+    background-color: rgba(206,190,228,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tetudo{
+    display: flex;
+}
+.metade1{
+    width: 45vw;
+    height: 100%;
+}
+.metade2{
+    width: 66vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-controle{
+    height: 261px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: linear-gradient(to left,rgba(146,70,253,1), rgba(202,175,240,1));
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 5vh;
+}
+.tudo{
+    height: 150px;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+}
+input, select{
+    height: 30px;
+    background: rgba(217,217,217,1);
+    border: none;
+    border-radius: 5px;
+}
+select{
+    width: 12vw;
+    margin-top: 10vh;
+    background-color:#AA6DFF;
+}
+
+select.active { /* Cor quando clicado vai para o JS */
+    background-color: #CEBEE4;
+    color: #2D006C;
+    font-weight: 700;
+}
+
+.selects{
+    height: 45vh;
+    width: 619px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-tm{
+    width: 124px;
+    height: 37px;
+}
+.btn-white{
+    color:#2D006C;
+    background-color: #CEBEE4;
+    border: none;
+    border-radius: 8px;
+    font-weight: 70;
+    font-size: medium;
+}
