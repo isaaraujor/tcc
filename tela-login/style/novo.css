@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    height: 100vh;
+}
+h2{
+    color: rgba(45,0,108,1);
+}
+
+.navb{
+    height: 12vh !important;
+    background-color: rgba(206,190,228,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.metadinhas{
+    display: flex;
+}
+.metade1{
+    width: 50%;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+}
+.metade2{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 76vh;
+}
+
+
+.form-cad{
+    height: 70vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    background: linear-gradient(to left,rgba(146,70,253,1), rgba(202,175,240,1));
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgba(45,0,108,1);
+}
+.tudo{
+    width: 80%;
+}
+.citep{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+}
+.input-box2{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+input, select{
+    height: 30px;
+    background: rgba(217,217,217,1);
+    border: none;
+    border-radius: 5px;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.btn-tm{
+    width: 124px;
+    height: 37px;
+}
+.btn-white{
+    color:#2D006C;
+    background-color: #CEBEE4;
+    border: none;
+    border-radius: 8px;
+    font-weight: 70;
+    font-size: medium;
+}

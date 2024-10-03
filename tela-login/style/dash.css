@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: linear-gradient(to right,rgba(146,70,253,1), rgba(206,190,228,1));
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.navb{
+    position:fixed;
+    display: flex;
+    background-color: blueviolet;
+    width: 230px;
+    height: 100%;
+}
+
+.btn-tm{
+    width: 230px;
+    height: 50px;
+}
+
+.btn-color{
+    border: 0;
+    border-radius: 10;
+    background-color:rgba(146, 70, 253, 0.685);
+    font-size: 17px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+h3{
+    color:white;
+    text-align: center;
+    margin : 8vh 0;
+}
+
+.dados-prof{
+    height: 12vh;
+    background-color: grey;
+
+}
+
+.titulo{
+    height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tetudo{
+    background-image: url(../img/rocket.png);
+    background-size: 100%;
+    background-position: bottom;
+    height: 100%;
+    background-repeat: no-repeat;
+    margin-left: 230px;
+}
