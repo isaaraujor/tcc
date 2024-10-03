@@ -9,6 +9,9 @@ body{
     background-repeat: no-repeat;
     height: 100vh;
 }
+a{
+    text-decoration: none;
+}
 
 .navb{
     position:fixed;
@@ -31,6 +34,14 @@ body{
     color: white;
     margin-bottom: 10px;
 }
+.btn-align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgs-buttons{
+    margin-right: 10px;
+}
 
 h3{
     color:white;
@@ -40,8 +51,9 @@ h3{
 
 .dados-prof{
     height: 12vh;
-    background-color: grey;
-
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
 }
 
 .titulo{
@@ -59,3 +71,4 @@ h3{
     background-repeat: no-repeat;
     margin-left: 230px;
 }
+
