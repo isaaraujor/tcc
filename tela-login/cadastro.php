@@ -1,15 +1,11 @@
-<!-- SALVAR NO GIT
- git add .
- git commit -m "mensagem pequena" 
- git push-->
-
+<?php include 'conexao.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Novo cadastro</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/login.css">
@@ -18,28 +14,38 @@
     <div class="everthing">
 
         <div class="main-title">
+
             <div class="words">
-                <h1 class="wlc">BEM-VINDO AO</h1>
+                <h1 class="wlc">BEM VINDO AO</h1>
                 <h1 class="title-tcc">CheckClass!</h1>
             </div>
+
             <div class="img">
-                <img class="pessoa" src="./img/Well-done.png">
+                <img class="pessoa" src="./img/Well-done.png"> 
             </div>
+
         </div>
         <div class="main-login">
 
             <div class="form-login">
-                <div class="tudo">
-                    <h2 align="center">Login de usuário</h2>
+
+                <form action="insere-dados.php" method="POST" class="tudo">
+    
+                    <h2 align="center">Cadastro de usuário</h2>
         
                     <div class="input-box">
-                        <label>Login</label>
-                        <input type="text" name="login" id="login">
+                        <label>Nome</label>
+                        <input type="text" name="nome" id="nome">
                     </div>
         
                     <div class="input-box">
+                        <label>Login (CPF)</label>
+                        <input type="text" name="login" id="login">
+                    </div>
+    
+                    <div class="input-box">
                         <label>Senha</label>
-                        <input type="text" name="senha" id="senha">
+                        <input type="password" name="senha" id="senha">
                     </div>
         
                     <div class="input-box">
@@ -49,13 +55,15 @@
                             <option value="soe">SOE</option>
                         </select>
                     </div>
-                    <a href="dashboard.html" align="center">
-                        <button class="btn-tm btn-white">Entrar</button>
-                        <a href="cadastro.html" align="center">Não tem cadastro? Cadastre-se</a>
-                    </a>
-                </div>
+                    <div class="MMMMEUDEUSSS">
+                        <button type="submit" class="btn-tm btn-white">Cadastrar</button>
+                    </div>
+                    <a href="index.php" align="center">Já tem cadastro? Faça login</a>
+                </form>
+
             </div>   
+
         </div>
-    </div> 
+    </div>
 </body>
 </html>
