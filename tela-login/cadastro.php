@@ -35,17 +35,17 @@
         
                     <div class="input-box">
                         <label>Nome</label>
-                        <input type="text" name="nome" id="nome">
+                        <input type="text" name="nome" id="nome" required>
                     </div>
         
                     <div class="input-box">
                         <label>Login (CPF)</label>
-                        <input type="text" name="login" id="login">
+                        <input type="text" name="login" id="login" required>
                     </div>
     
                     <div class="input-box">
                         <label>Senha</label>
-                        <input type="password" name="senha" id="senha">
+                        <input type="password" name="senha" id="senha" required>
                     </div>
         
                     <div class="input-box">

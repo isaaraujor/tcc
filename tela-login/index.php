@@ -44,13 +44,13 @@ include 'conexao.php';
                             <input type="password" name="senha" id="senha">
                         </div>
                         
-                        <!-- <div class="input-box">
+                         <div class="input-box">
                             <label>Tipo de usuário</label>
                             <select name="tipo" id="tipo">
                                 <option value="prof">Professor</option>
                                 <option value="soe">SOE</option>
                             </select>
-                        </div> -->
+                        </div> 
                         <div class="MMMMEUDEUSSS">
                             <button type="submit" class="btn-tm btn-white">Entrar</button>
                         </div>

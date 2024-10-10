@@ -1,12 +1,12 @@
 <?php
- $servername = "localhost"; 
- $username = "root"; 
- $password = ""; 
- $dbname = "contchamada"; 
- 
- $con = new mysqli($servername, $username, $password, $dbname);
- 
- if ($con->connect_error) {
-     die("Conexão falhou: " . $con->connect_error);
- }
- ?>
+$host = "localhost";
+$user = "root";
+$pass = "";
+$banco = "contchamada";
+$port = 3306;
+try{
+  $con = new PDO("mysql:host=$host;port=$port;dbname=".$banco,$user,$pass);
+
+}catch(PDOException $erro){
+  echo "Erro Conexão ".$erro->getMessage();
+}

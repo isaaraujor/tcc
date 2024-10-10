@@ -6,12 +6,28 @@ $login = $_POST['login'];
 $senha = $_POST['senha'];
 $tipo = $_POST['tipo'];
 
-$sql = "INSERT INTO usuarios (nome, login, senha, tipo) VALUES ('$nome', '$login', '$senha', '$tipo')";
+$stmt = $con->prepare("SELECT login FROM usuarios WHERE login = ?");
+$username = $login; // Substitua pelo nome de usuário desejado
+$stmt->execute([$username]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($con->query($sql) === TRUE) {
-  echo "<script>alert('Login feito com sucesso!');</script>";
-} else {
-    echo "erro: " . $sql . "<br>" . $con->error;
-}
-$con->close();
+echo"$stmt";
+
+
+// if($user == $login){
+
+//   echo "<script>alert('Usuário já existe!');</script>";
+  
+// }
+//else{
+//   $sql = "INSERT INTO usuarios (nome, login, senha, tipo) VALUES ('$nome', '$login', '$senha', '$tipo')";
+
+//   if ($con->query($sql) === TRUE) {
+//     echo "<script>alert('Cadastro feito com sucesso!');</script>";
+//   } else {
+//       echo "erro: " . $sql . "<br>" . $con->error;
+//   }
+//   $con->close();
+// }
+
 ?>
