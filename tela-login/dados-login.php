@@ -34,32 +34,23 @@
 <?php 
 include 'conexao.php';
 
-$login = $_POST['login'];
-$senha = $_POST['senha'];
-// $tipo = $_POST['tipo'];
 
-$sql = "SELECT * FROM usuarios WHERE login = ?";
-$stmt = $con->prepare($sql);
-$stmt->bind_param("s", $login);
-$stmt->execute();
-$result = $stmt->get_result();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['login'];
+    $password = $_POST['senha'];
 
-if ($result->num_rows > 0) {
-    $usuario = $result->fetch_assoc();
-    // Verificar a senha
-    if (password_verify($senha, $usuario['senha'])) {
-        // Login bem-sucedido
-        $_SESSION['usuario_id'] = $usuario['id'];
-        $_SESSION['usuario_nome'] = $usuario['nome'];
-        echo "Login realizado com sucesso, " . $usuario['nome'] . "!";
-        // Redirecionar para uma página de sucesso ou painel
-        // header("Location: painel.php"); // Descomente para redirecionar
+    // Conexão ao banco de dados
+    // $pdo = new PDO('mysql:host=localhost;dbname=seu_banco', 'usuario', 'senha');
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->execute([$username]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id'];
+        echo "Login bem-sucedido!";
+        // Redirecionar ou mostrar uma mensagem de sucesso
     } else {
-        echo "Senha incorreta.";
+        echo "Usuário ou senha incorretos.";
     }
-} else {
-    echo "Usuário não encontrado.";
 }
-
-$con->close();
 ?>
