@@ -1,3 +1,5 @@
+<?php include 'conexao.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -78,7 +80,7 @@
                 <img class="cad" src="img/computer.png"> 
             </div> 
 
-            <a href="dashboard.html" align="center">
+            <a href="dashboard.php" align="center">
                 <button class="btn-tm btn-white">Cadastrar</button>
             </a>    
         </div>

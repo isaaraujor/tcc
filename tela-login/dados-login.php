@@ -13,7 +13,9 @@ include_once('conexao.php');
   $campo = $resultado -> fetch();
   if($resultado -> rowCount()>0){
      $_SESSION['logado']=1;
-     header("location:dashboard.html");
+     header("location:dashboard.php");
+  }else{
+   echo "<script>alert('Usuário não existe!');</script>";
   }
 
   ?>

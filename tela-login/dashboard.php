@@ -1,3 +1,5 @@
+<?php include 'conexao.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,15 +14,15 @@
         <div class="navb">
             <div class="btn-navb">
                 <h3>CheckClass</h3>
-                <a href="controle.html">
+                <a href="controle.php">
                     <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/cont.png">Controle</button>
                 </a>
                 
-                <a href="historico.html">
+                <a href="historico.php">
                     <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/hist.png">Histórico</button>
                 </a>
 
-                <a href="novoaluno.html">
+                <a href="novoaluno.php">
                     <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Novo  aluno</button>
                 </a>
             </div>

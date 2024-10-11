@@ -1,3 +1,5 @@
+<?php include 'conexao.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -61,7 +63,7 @@
     </div>
 
     <div class="canto-button">
-      <a href="dashboard.html">
+      <a href="dashboard.php">
         <button class="btn-tm btn-white">Confirmar</button>
       </a> 
     </div>
