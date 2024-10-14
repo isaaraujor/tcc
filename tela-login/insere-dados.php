@@ -11,16 +11,15 @@ $stmt->execute(['login' => $email]);
 $count = $stmt->fetchColumn();
 
 if ($count > 0) {
-        echo "E-mail já cadastrado!";
+        echo "<script>alert('Login já existente!');</script>";
 } else {
-        // Inserir novo usuário
         $stmt = $con->prepare("INSERT INTO usuarios (nome, login, senha, tipo) VALUES (:nome, :login, :senha, :tipo)");
         $stmt->execute([
             'nome' => $nome,
             'login' => $email,
-            'senha' => password_hash($senha, PASSWORD_DEFAULT), // Hash da senha
+            'senha' => password_hash($senha, PASSWORD_DEFAULT),
             'tipo' => $tipo
         ]);
-        echo "Usuário cadastrado com sucesso!";
+        header("location:index.php");
     }
 ?>
