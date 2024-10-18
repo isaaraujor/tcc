@@ -2,21 +2,21 @@
 include 'conexao.php'; 
 
 $nome = $_POST['nome'];
-$email = $_POST['login'];
+$login = $_POST['login'];
 $senha = $_POST['senha'];
 $tipo = $_POST['tipo'];
 
 $stmt = $con->prepare("SELECT COUNT(*) FROM usuarios WHERE login = :login ");
-$stmt->execute(['login' => $email]);
+$stmt->execute(['login' => $login]);
 $count = $stmt->fetchColumn();
 
 if ($count > 0) {
-        echo "<script>alert('Login já existente!');</script>";
+        "<script>alert('Login já existe!'); window.location.href = 'cadastro.php';</script>";
 } else {
         $stmt = $con->prepare("INSERT INTO usuarios (nome, login, senha, tipo) VALUES (:nome, :login, :senha, :tipo)");
         $stmt->execute([
             'nome' => $nome,
-            'login' => $email,
+            'login' => $login,
             'senha' => password_hash($senha, PASSWORD_DEFAULT),
             'tipo' => $tipo
         ]);
