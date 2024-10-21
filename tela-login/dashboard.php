@@ -23,7 +23,7 @@
                 </a>
 
                 <a href="novoaluno.php">
-                    <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Novo  aluno</button>
+                    <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Novo aluno</button>
                 </a>
             </div>
         </div>
@@ -31,6 +31,8 @@
         <div class="tetudo">
             <nav class="dados-prof">
                 <h2>Olá, </h2>
+                <div id="resultado">
+                    <?php echo htmlspecialchars($nome); ?> 
                 <div class="img-perfil">
                     <img class="user" src="img/download.png">
 

@@ -14,7 +14,6 @@
     <div class="navb">
         <h2>NOVO CADASTRO</h2>
     </div>
-    <div class="metadinhas">
         <form action="cadalunos.php" method="POST" class="metadinhas">
 
             <div class="metade1">
@@ -86,8 +85,5 @@
                 </div> 
             </div>
         </form>
-        
-    </div>
-
 </body>
 </html>
