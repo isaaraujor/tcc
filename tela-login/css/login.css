@@ -68,7 +68,7 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background: linear-gradient(to left,rgba(146,70,253,1), rgba(202,175,240,1));
+    background: linear-gradient(to left,rgba(146,70,253,1), rgb(156, 85, 255));
     background-size: cover;
     background-repeat: no-repeat;
 }
