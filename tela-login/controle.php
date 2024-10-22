@@ -1,4 +1,10 @@
-<?php include 'conexao.php'; ?>
+<?php 
+session_start();
+if(!isset($_SESSION['logado'])){
+    header("Location: acessoneg.php");
+}else{
+
+include 'conexao.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -92,3 +98,6 @@
   });
 </script>
 </html>
+<?php 
+}
+?>

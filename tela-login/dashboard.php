@@ -31,8 +31,6 @@
         <div class="tetudo">
             <nav class="dados-prof">
                 <h2>Olá, </h2>
-                <div id="resultado">
-                    <?php echo htmlspecialchars($nome); ?> 
                 <div class="img-perfil">
                     <img class="user" src="img/download.png">
 

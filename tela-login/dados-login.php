@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conexao.php'; 
 
 $login = $_POST['login']; 
@@ -10,6 +11,7 @@ $senhaArmazenada = $stmt->fetchColumn();
 
 if ($senhaArmazenada) {
     if (password_verify($senha, $senhaArmazenada)) {
+        $_SESSION['logado'] = 1;
         header("location:dashboard.php");
         exit;
     } else {
