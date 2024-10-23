@@ -12,7 +12,11 @@
 </head>
 <body>
     <div class="navb">
+        <a href="dashboard.php">
+            <img src="img/back.png" height="40px">
+        </a>
         <h2>NOVO CADASTRO</h2>
+        <p></p>
     </div>
         <form action="cadalunos.php" method="POST" class="metadinhas">
 

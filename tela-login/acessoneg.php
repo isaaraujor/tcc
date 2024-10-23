@@ -11,7 +11,7 @@
 <body>
     <div class="word">
         <h1>Usuário sem permissão!</h1>
-        <p>Você não possui permissão para acessar esta página. <a href="index.php">Clique aqui</a> para voltar ao login.</p>
+        <p>Você não possui permissão para acessar esta página. <a href="cadastro.php">Clique aqui</a> para voltar ao login.</p>
     </div>
     <div class="img">
         <img src="img/negado.png">
