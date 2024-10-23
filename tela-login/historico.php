@@ -1,4 +1,10 @@
-<?php include 'conexao.php'; ?>
+<?php 
+session_start();
+if(!isset($_SESSION['logado'])){
+    header("Location: acessoneg.php");
+}else{
+
+include 'conexao.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,8 +18,15 @@
 </head>
 <body>
   <div class="navb">
+  <a href="dashboard.php">
+            <img src="img/back.png" height="40px">
+        </a>
     <h2>HISTÓRICO</h2>
+    <p></p>
 </div>
 
 </body>
 </html>
+<?php
+}
+?>

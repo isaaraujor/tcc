@@ -25,63 +25,65 @@ h2{
     display: flex;
 }
 .metade1{
-    width: 45vw;
-    height: 100%;
-}
-.metade2{
-    width: 66vw;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.metade2{
+    width: 45vw;
+    height: 100%;
+}
 
 .form-controle{
-    height: 261px;
-    width: 60%;
+    height: 90px;
+    width: 95%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     border-radius: 10px;
     background: linear-gradient(to left,rgba(146,70,253,1), rgb(156, 85, 255));
     background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 5vh;
+    margin-top: 2vh;
 }
 .tudo{
     height: 150px;
-    width: 25vw;
+    width: 40vw;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
+   
 }
 
 
 .input-box{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
 }
 input, select{
     height: 30px;
+    width: 220px;
     background: rgba(217,217,217,1);
     border: none;
     border-radius: 5px;
 }
 select{
+    height: 35px;
     width: 12vw;
-    margin-top: 10vh;
-    background-color:#AA6DFF;
+    background-color:#CEBEE4;
 }
 
 select.active { /* Cor quando clicado vai para o JS */
-    background-color: #CEBEE4;
+    background-color: #AA6DFF;;
     color: #2D006C;
     font-weight: 700;
 }
 
 .selects{
-    height: 45vh;
-    width: 619px;
+    width: 40vw;
     display: flex;
     justify-content: space-evenly;
 }

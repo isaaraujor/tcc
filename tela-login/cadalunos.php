@@ -1,4 +1,5 @@
 <?php
+$session_start();
 
 include 'conexao.php'; 
 
@@ -19,6 +20,7 @@ $count = $stmt->fetchColumn();
 
 if ($count > 0) {
         "<script>alert('Aluno já cadastrado!'); window.location.href = 'novoaluno.php';</script>";
+
 } else {
         $stmt = $con->prepare("INSERT INTO alunos (nome, data_nasc, matricula, rua, bairro, cidade, CEP, nome_resp, contat_resp) VALUES (:nome, :data_nasc, :matricula, :rua, :bairro, :cidade, :CEP, :nome_resp, :contat_resp)");
         $stmt->execute([

@@ -1,4 +1,7 @@
-<?php include 'conexao.php'; ?>
+<?php 
+session_start();
+
+include 'conexao.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,50 +32,50 @@
             
                         <div class="input-box">
                             <label>Nome</label>
-                            <input type="text" name="nome" id="nome">
+                            <input type="text" name="nome" id="nome" required>
                         </div>
             
                         <div class="input-box">
                             <label>Data de nascimento</label>
-                            <input type="date" name="data" id="data">
+                            <input type="date" name="data" id="data" required>
                         </div>
             
                         <div class="input-box">
                             <label>Matrícula</label>
-                            <input type="text" name="matricula" id="matricula">
+                            <input type="text" name="matricula" id="matricula" required>
                         </div>
             
                         <div class="input-box">
                             <label>Rua</label>
-                            <input type="text" name="rua" id="rua">
+                            <input type="text" name="rua" id="rua" required>
                         </div>
             
                         <div class="input-box">
                             <label>Bairro</label>
-                            <input type="text" name="bairro" id="bairro">
+                            <input type="text" name="bairro" id="bairro" required>
                         </div>
         
                         <div class="citep">
                             <div class="input-box2">
                                 <label>Cidade</label>
-                                <input type="text" name="cidade" id="cidade">
+                                <input type="text" name="cidade" id="cidade" required>
                             </div>
                 
                             <div class="input-box2">
                                 <label>CEP</label>
-                                <input type="text" name="cep" id="cep">
+                                <input type="text" name="cep" id="cep" required>
                             </div>
                         </div>
             
             
                         <div class="input-box">
                             <label>Nome responsável</label>
-                            <input type="text" name="resp" id="resp">
+                            <input type="text" name="resp" id="resp" required>
                         </div>
             
                         <div class="input-box">
                             <label>Contato responsável</label>
-                            <input type="text" name="contato" id="contato">
+                            <input type="text" name="contato" id="contato" required>
                         </div>
 
                         <div class="MMMMEUDEUSSS">
