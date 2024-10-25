@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/10/2024 às 15:38
+-- Tempo de geração: 25/10/2024 às 20:21
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -37,7 +37,8 @@ CREATE TABLE `alunos` (
   `cidade` varchar(100) DEFAULT NULL,
   `CEP` char(8) DEFAULT NULL,
   `nome_resp` varchar(100) DEFAULT NULL,
-  `contat_resp` varchar(100) DEFAULT NULL
+  `contat_resp` varchar(100) DEFAULT NULL,
+  `id_turma` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -76,9 +77,19 @@ CREATE TABLE `falta` (
 CREATE TABLE `notificacao` (
   `id_notificacao` int(11) NOT NULL,
   `mensagem` text DEFAULT NULL,
-  `tempo_notificacao` datetime DEFAULT NULL,
-  `faltas` int(11) DEFAULT NULL,
-  `id_controle` int(11) DEFAULT NULL
+  `tempo_notificaccao` datetime DEFAULT NULL,
+  `faltas` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `turma`
+--
+
+CREATE TABLE `turma` (
+  `id_turma` int(11) NOT NULL,
+  `numero_turma` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -110,7 +121,8 @@ INSERT INTO `usuarios` (`id_usuarios`, `nome`, `login`, `senha`, `tipo`) VALUES
 -- Índices de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  ADD PRIMARY KEY (`id_alunos`);
+  ADD PRIMARY KEY (`id_alunos`),
+  ADD KEY `id_turma` (`id_turma`);
 
 --
 -- Índices de tabela `controle`
@@ -130,8 +142,13 @@ ALTER TABLE `falta`
 -- Índices de tabela `notificacao`
 --
 ALTER TABLE `notificacao`
-  ADD PRIMARY KEY (`id_notificacao`),
-  ADD KEY `id_controle` (`id_controle`);
+  ADD PRIMARY KEY (`id_notificacao`);
+
+--
+-- Índices de tabela `turma`
+--
+ALTER TABLE `turma`
+  ADD PRIMARY KEY (`id_turma`);
 
 --
 -- Índices de tabela `usuarios`
@@ -168,6 +185,12 @@ ALTER TABLE `notificacao`
   MODIFY `id_notificacao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `turma`
+--
+ALTER TABLE `turma`
+  MODIFY `id_turma` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -178,17 +201,17 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- Restrições para tabelas `alunos`
+--
+ALTER TABLE `alunos`
+  ADD CONSTRAINT `id_turma` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`);
+
+--
 -- Restrições para tabelas `falta`
 --
 ALTER TABLE `falta`
   ADD CONSTRAINT `falta_ibfk_1` FOREIGN KEY (`controle_id`) REFERENCES `controle` (`id_controle`),
   ADD CONSTRAINT `falta_ibfk_2` FOREIGN KEY (`aluno_id`) REFERENCES `alunos` (`id_alunos`);
-
---
--- Restrições para tabelas `notificacao`
---
-ALTER TABLE `notificacao`
-  ADD CONSTRAINT `id_controle` FOREIGN KEY (`id_controle`) REFERENCES `controle` (`id_controle`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
