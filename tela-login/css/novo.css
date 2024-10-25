@@ -42,13 +42,14 @@ h2{
 
 
 .form-cad{
-    height: 80vh;
-    width: 90%;
+    height: 75vh;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: auto;
+    margin-left: 7px;
     border-radius: 10px;
     background: linear-gradient(to left,rgba(146,70,253,1), rgb(156, 85, 255));
     background-size: cover;

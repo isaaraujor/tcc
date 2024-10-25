@@ -64,8 +64,8 @@ h2{
     
 }
 input, select{
-    height: 30px;
-    width: 220px;
+    height: 5vh;
+    width: 12vw;
     background: rgba(217,217,217,1);
     border: none;
     border-radius: 5px;
