@@ -12,7 +12,7 @@ $stmt->execute(['login' => $login]);
 $count = $stmt->fetchColumn();
 
 if ($count > 0) {
-        "<script>alert('Login já existe!'); window.location.href = 'cadastro.php';</script>";
+        "<script>alert('Login já existe!'); window.location.href = 'cadastro';</script>";
 } else {
         $stmt = $con->prepare("INSERT INTO usuarios (nome, login, senha, tipo) VALUES (:nome, :login, :senha, :tipo)");
         $stmt->execute([
@@ -21,6 +21,6 @@ if ($count > 0) {
             'senha' => password_hash($senha, PASSWORD_DEFAULT),
             'tipo' => $tipo
         ]);
-        header("location:index.php");
+        header("location:login");
     }
 ?>

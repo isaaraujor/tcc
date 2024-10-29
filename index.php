@@ -12,22 +12,28 @@
     case "login":
       include_once("./pages/login.php");
       break;
+
     case "cadastro":
       include_once("./pages/cadastro.php");
       break; 
-      case "dados-login":
-        include_once("./pages/dados-login.php");
-        break;
+
     case "dashboard":
       include_once("./pages/dashboard.php");
       break;
+
     case "controle":
       include_once("./pages/controle.php");
       break;
-    case "logar":
-      include_once("./pages/logar.php");
+
+    case "historico":
+      include_once("./pages/historico.php");
       break;
+
+    case "novoaluno":
+      include_once("./pages/novoaluno.php");
+      break;
+
     default:
-      include_once("./pages/home.php");
+      include_once("./pages/dashboard.php");
     } 
   }

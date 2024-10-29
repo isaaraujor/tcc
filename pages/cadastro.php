@@ -29,7 +29,7 @@
 
             <div class="form-login">
 
-                <form action="insere-dados.php" method="POST" class="tudo">
+                <form action="insere-dados" method="POST" class="tudo">
     
                     <h2 align="center">Cadastro de usuário</h2>
         
@@ -50,7 +50,7 @@
         
                     <div class="input-box">
                         <label>Tipo de usuário</label>
-                        <select name="tipo" id="tipo">
+                        <select name="tipo" id="tipo" required>
                             <option value="prof">Professor</option>
                             <option value="soe">SOE</option>
                         </select>
@@ -58,7 +58,7 @@
                     <div class="MMMMEUDEUSSS">
                         <button type="submit" class="btn-tm btn-white">Cadastrar</button>
                     </div>
-                    <a href="index.php" align="center">Já tem cadastro? Faça login</a>
+                    <a href="login" align="center">Já tem cadastro? Faça login</a>
                 </form>
 
             </div>   

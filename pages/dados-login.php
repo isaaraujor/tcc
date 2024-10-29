@@ -15,9 +15,9 @@ if ($senhaArmazenada) {
         header("location:dashboard");
         exit;
     } else {
-       echo "<script>alert('Senha incorreta!'); window.location.href = 'index.php';</script>";
+       echo "<script>alert('Senha incorreta!'); window.location.href = 'login';</script>";
     }
 } else {
-    echo "<script>alert('Login não encontrado!'); window.location.href = 'index.php';</script>";
+    echo "<script>alert('Login não encontrado!'); window.location.href = 'login';</script>";
 }
 ?>

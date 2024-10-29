@@ -18,11 +18,11 @@
                     <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/cont.png">Controle</button>
                 </a>
                 
-                <a href="historico.php">
+                <a href="historico">
                     <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/hist.png">Histórico</button>
                 </a>
 
-                <a href="novoaluno.php">
+                <a href="novoaluno">
                     <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Novo aluno</button>
                 </a>
             </div>

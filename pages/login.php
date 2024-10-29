@@ -36,17 +36,17 @@ include 'conexao.php';
                         <h2 align="center">Login de usuário</h2>
                         <div class="input-box">
                             <label>Login</label>
-                            <input type="text" name="login" id="login">
+                            <input type="text" name="login" id="login" required>
                         </div>
                         
                         <div class="input-box">
                             <label>Senha</label>
-                            <input type="password" name="senha" id="senha">
+                            <input type="password" name="senha" id="senha" required>
                         </div>
                         
                          <div class="input-box">
                             <label>Tipo de usuário</label>
-                            <select name="tipo" id="tipo">
+                            <select name="tipo" id="tipo" required>
                                 <option value="prof">Professor</option>
                                 <option value="soe">SOE</option>
                             </select>

@@ -12,7 +12,11 @@
 </head>
 <body>
   <div class="navb">
+  <a href="dashboard">
+            <img src="img/back.png" height="40px">
+        </a>
     <h2>HISTÓRICO</h2>
+    <p></p>
 </div>
 
 </body>
