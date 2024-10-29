@@ -58,7 +58,12 @@ h2{
     flex-direction: column;
 }
 input, select{
+<<<<<<< HEAD
     height: 30px;
+=======
+    height: 5vh;
+    width: 12vw;
+>>>>>>> 64ff35cda51e6851e5fc648338d67cfe225cd2f4
     background: rgba(217,217,217,1);
     border: none;
     border-radius: 5px;

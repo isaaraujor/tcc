@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<<< HEAD:pages/contchamada.sql
--- Tempo de geração: 22/10/2024 às 15:42
-========
 -- Tempo de geração: 25/10/2024 às 20:21
->>>>>>>> 64ff35cda51e6851e5fc648338d67cfe225cd2f4:contchamada.sql
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -83,8 +79,6 @@ CREATE TABLE `notificacao` (
   `mensagem` text DEFAULT NULL,
   `tempo_notificaccao` datetime DEFAULT NULL,
   `faltas` int(11) DEFAULT NULL
-<<<<<<<< HEAD:pages/contchamada.sql
-========
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -96,7 +90,6 @@ CREATE TABLE `notificacao` (
 CREATE TABLE `turma` (
   `id_turma` int(11) NOT NULL,
   `numero_turma` int(3) DEFAULT NULL
->>>>>>>> 64ff35cda51e6851e5fc648338d67cfe225cd2f4:contchamada.sql
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -150,15 +143,12 @@ ALTER TABLE `falta`
 --
 ALTER TABLE `notificacao`
   ADD PRIMARY KEY (`id_notificacao`);
-<<<<<<<< HEAD:pages/contchamada.sql
-========
 
 --
 -- Índices de tabela `turma`
 --
 ALTER TABLE `turma`
   ADD PRIMARY KEY (`id_turma`);
->>>>>>>> 64ff35cda51e6851e5fc648338d67cfe225cd2f4:contchamada.sql
 
 --
 -- Índices de tabela `usuarios`
