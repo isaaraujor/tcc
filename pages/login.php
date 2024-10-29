@@ -21,7 +21,7 @@ include 'conexao.php';
 
         <div class="main-title">
             <div class="words">
-                <h1 class="wlc">BEM VINDO AO</h1>
+                <h1 class="wlc">BEM-VINDO AO</h1>
                 <h1 class="title-tcc">CheckClass!</h1>
             </div>
             <div class="img">
