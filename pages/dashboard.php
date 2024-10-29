@@ -38,7 +38,7 @@
             </nav>
 
             <div class="titulo">
-                <h2>Faça o controle da turma com</h2>
+                
             </div>
 
         </div>

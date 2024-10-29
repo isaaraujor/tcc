@@ -13,9 +13,17 @@
       include_once("./pages/login.php");
       break;
 
+    case "dados-login":
+      include_once("./pages/dados-login.php");
+      break;
+
     case "cadastro":
       include_once("./pages/cadastro.php");
       break; 
+    
+    case "insere-dados":
+      include_once("./pages/insere-dados.php");
+      break;
 
     case "dashboard":
       include_once("./pages/dashboard.php");
@@ -31,6 +39,14 @@
 
     case "novoaluno":
       include_once("./pages/novoaluno.php");
+      break;
+
+    case "cadalunos":
+      include_once("./pages/cadalunos.php");
+      break;
+
+    case "acessoneg":
+      include_once("./pages/acessoneg.php");
       break;
 
     default:

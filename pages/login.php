@@ -3,7 +3,6 @@
  git commit -m "mensagem pequena" 
  git push-->
 <?php 
-
 include 'conexao.php'; 
 
 ?>
