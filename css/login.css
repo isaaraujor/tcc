@@ -1,0 +1,104 @@
+/* Regras gerais */
+*{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    color: rgba(45,0,108,1);
+
+}
+h1{
+    font-size: 47px;
+}
+h2{
+    font-size: 30px
+}
+body{
+    background: linear-gradient(to right,rgba(146,70,253,1), rgba(206,190,228,1));
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.everthing{
+    display: flex;
+    height: 100%;
+}
+
+
+/* TITULOOOOOOOO */
+.main-title{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+.words{
+    display: flex;
+    flex-direction: column;
+    margin-left:auto;
+}
+.wlc{
+    font-weight: 700;   
+}
+.title-tcc{
+    font-weight: 600;
+    margin: auto;
+}
+
+.img{
+    bottom: 0;
+}
+.pessoa{
+    position:absolute;
+    bottom: 0;
+}
+
+
+/* FORMMMMMMMMMMM */
+.main-login{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-login{
+    height: 500px;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: linear-gradient(to left,rgba(146,70,253,1), rgb(156, 85, 255));
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.tudo{
+    height: 350px;
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.input-box{
+    display: flex;
+    flex-direction: column;
+}
+input, select{
+    height: 30px;
+    background: rgba(217,217,217,1);
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-tm{
+    width: 100px;
+}
+.btn-white{
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+}
+.MMMMEUDEUSSS{
+    display: flex;
+    justify-content: center;
+}

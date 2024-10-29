@@ -32,7 +32,7 @@ include 'conexao.php';
         <div class="main-login">
 
             <div class="form-login">
-                <form action="dados-login.php" method="POST" class="tudo">
+                <form action="dados-login" method="POST" class="tudo">
                         <h2 align="center">Login de usuário</h2>
                         <div class="input-box">
                             <label>Login</label>
@@ -54,7 +54,7 @@ include 'conexao.php';
                         <div class="MMMMEUDEUSSS">
                             <button type="submit" class="btn-tm btn-white">Entrar</button>
                         </div>
-                        <a href="cadastro.php" align="center">Não tem cadastro? Cadastre-se</a>
+                        <a href="cadastro" align="center">Não tem cadastro? Cadastre-se</a>
                     </form>
                 
             </div>   

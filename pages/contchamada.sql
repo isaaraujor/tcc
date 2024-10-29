@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/10/2024 às 15:38
+-- Tempo de geração: 22/10/2024 às 15:42
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -76,9 +76,8 @@ CREATE TABLE `falta` (
 CREATE TABLE `notificacao` (
   `id_notificacao` int(11) NOT NULL,
   `mensagem` text DEFAULT NULL,
-  `tempo_notificacao` datetime DEFAULT NULL,
-  `faltas` int(11) DEFAULT NULL,
-  `id_controle` int(11) DEFAULT NULL
+  `tempo_notificaccao` datetime DEFAULT NULL,
+  `faltas` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -130,8 +129,7 @@ ALTER TABLE `falta`
 -- Índices de tabela `notificacao`
 --
 ALTER TABLE `notificacao`
-  ADD PRIMARY KEY (`id_notificacao`),
-  ADD KEY `id_controle` (`id_controle`);
+  ADD PRIMARY KEY (`id_notificacao`);
 
 --
 -- Índices de tabela `usuarios`
@@ -183,12 +181,6 @@ ALTER TABLE `usuarios`
 ALTER TABLE `falta`
   ADD CONSTRAINT `falta_ibfk_1` FOREIGN KEY (`controle_id`) REFERENCES `controle` (`id_controle`),
   ADD CONSTRAINT `falta_ibfk_2` FOREIGN KEY (`aluno_id`) REFERENCES `alunos` (`id_alunos`);
-
---
--- Restrições para tabelas `notificacao`
---
-ALTER TABLE `notificacao`
-  ADD CONSTRAINT `id_controle` FOREIGN KEY (`id_controle`) REFERENCES `controle` (`id_controle`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

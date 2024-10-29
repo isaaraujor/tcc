@@ -15,7 +15,7 @@
             <div class="btn-navb">
                 <h3>CheckClass</h3>
                 <a href="controle">
-                    <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/cont.png">Controle dd</button>
+                    <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/cont.png">Controle</button>
                 </a>
                 
                 <a href="historico.php">
