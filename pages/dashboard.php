@@ -38,9 +38,35 @@
             </nav>
 
             <div class="titulo">
-                
+                <h3>Faça o controle da turma com</h3><br>
             </div>
+            <div class="titulo2">
+                <h3 class="digitar" id="texto"></h3>
+            </div>
+            
+            <script>
+        const texto = " Facilidade e Rapidez";
+        let index = 0;
 
+        function digitar() {
+            if (index < texto.length) {
+                document.getElementById("texto").textContent += texto.charAt(index);
+                index++;
+                setTimeout(digitar, 100);
+            } else {
+                //reinicia a animação
+                setTimeout(reiniciar, 1000);
+            }
+        }
+
+        function reiniciar() {
+            index = 0; 
+            document.getElementById("texto").textContent = "";
+            digitar(); 
+        }
+
+        digitar();
+    </script>
         </div>
 </body>
 </html>

@@ -61,10 +61,13 @@ h3{
 }
 
 .titulo{
-    height: 88vh;
+    margin-top: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.titulo h3{
+    margin: 0;
 }
 
 .tetudo{
@@ -75,4 +78,12 @@ h3{
     background-repeat: no-repeat;
     margin-left: 230px;
     color: white;
+}
+
+.digitar {
+    margin: 0;
+    border-right: 2px solid white; /* Cursor */
+    white-space: nowrap; /* Impede quebra de linha */
+    overflow: hidden; 
+   
 }
