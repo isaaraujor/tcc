@@ -1,4 +1,3 @@
-<?php include 'conexao.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,6 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/dash.css">
 </head>
+<?php
+ if(!isset($_SESSION['nome'])){
+
+ }else{
+?>
+
 <body>
         <div class="navb">
             <div class="btn-navb">
@@ -23,31 +28,34 @@
                 </a>
 
                 <a href="novoaluno">
-                    <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Novo aluno</button>
+                    <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Adicionar aluno</button>
+                </a>
+
+                <a href="novoprof">
+                    <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Adicionar professor</button>
                 </a>
             </div>
         </div>
         
         <div class="tetudo">
             <nav class="dados-prof">
-                <h2>Olá, </h2>
+                <h2>Olá, <?php echo $_SESSION['nome'] ?></h2>
                 <div class="img-perfil">
                     <img class="user" src="img/download.png">
+                    <?php echo $_SESSION['nome'] ?>
 
                 </div>
             </nav>
 
             <div class="titulo">
-                <h3>Faça o controle da turma com</h3><br>
+            <h3>Faça o controle da turma com</h3><br>
             </div>
             <div class="titulo2">
                 <h3 class="digitar" id="texto"></h3>
-            </div>
-            
-            <script>
+
+                <script>
         const texto = " Facilidade e Rapidez";
         let index = 0;
-
         function digitar() {
             if (index < texto.length) {
                 document.getElementById("texto").textContent += texto.charAt(index);
@@ -58,7 +66,6 @@
                 setTimeout(reiniciar, 1000);
             }
         }
-
         function reiniciar() {
             index = 0; 
             document.getElementById("texto").textContent = "";
@@ -67,6 +74,11 @@
 
         digitar();
     </script>
+            </div>
+
         </div>
 </body>
+<?php
+ }
+ ?>
 </html>

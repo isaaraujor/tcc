@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/11/2024 às 03:30
+-- Tempo de geração: 13/11/2024 às 20:35
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -178,19 +178,9 @@ CREATE TABLE `controle` (
   `data_cont` date DEFAULT NULL,
   `turma` int(3) DEFAULT NULL,
   `periodo` enum('Matutino','Vespertino','Noturno') DEFAULT NULL,
-  `materia` varchar(45) DEFAULT NULL,
-  `professor` varchar(30) DEFAULT NULL,
-  `qtde_aula` int(11) NOT NULL
+  `qtde_aula` int(11) NOT NULL,
+  `id_discTurma` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `controle`
---
-
-INSERT INTO `controle` (`id_controle`, `data_cont`, `turma`, `periodo`, `materia`, `professor`, `qtde_aula`) VALUES
-(1, '2024-11-01', 351, 'Matutino', 'Programação de Aplicativos ', 'Evandro Vieira', 3),
-(2, '2024-11-02', 352, 'Matutino', 'Programação de Aplicativos ', 'Evandro Vieira', 3),
-(3, '2024-11-03', 354, 'Matutino', 'Teste de Software', 'Evandro Vieira', 3);
 
 -- --------------------------------------------------------
 
@@ -214,6 +204,19 @@ INSERT INTO `disciplina` (`id_disciplina`, `nome_disciplina`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `disc_turma`
+--
+
+CREATE TABLE `disc_turma` (
+  `id_discTurma` int(11) NOT NULL,
+  `id_disc` int(11) DEFAULT NULL,
+  `id_turma` int(11) DEFAULT NULL,
+  `id_professor` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `falta`
 --
 
@@ -223,18 +226,6 @@ CREATE TABLE `falta` (
   `aluno_id` int(11) DEFAULT NULL,
   `qtde_faltas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `falta`
---
-
-INSERT INTO `falta` (`id_falta`, `controle_id`, `aluno_id`, `qtde_faltas`) VALUES
-(1, 1, 18, 3),
-(2, 1, 29, 3),
-(3, 2, 31, 3),
-(4, 2, 32, 3),
-(5, 3, 96, 3),
-(6, 3, 120, 3);
 
 -- --------------------------------------------------------
 
@@ -246,30 +237,22 @@ CREATE TABLE `notificacao` (
   `id_notificacao` int(11) NOT NULL,
   `mensagem` text DEFAULT NULL,
   `tempo_notificaccao` datetime DEFAULT NULL,
-  `faltas` int(11) DEFAULT NULL
+  `faltas` int(11) DEFAULT NULL,
+  `id_falta` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `prof_turma`
+-- Estrutura para tabela `professor`
 --
 
-CREATE TABLE `prof_turma` (
-  `id_profTurma` int(11) NOT NULL,
-  `professor_id` int(11) DEFAULT NULL,
-  `disciplina_id` int(11) DEFAULT NULL,
-  `turma_id` int(11) NOT NULL
+CREATE TABLE `professor` (
+  `id_professor` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `data_nascimento` date NOT NULL,
+  `cpf` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `prof_turma`
---
-
-INSERT INTO `prof_turma` (`id_profTurma`, `professor_id`, `disciplina_id`, `turma_id`) VALUES
-(1, 1, 1, 1),
-(2, 1, 1, 2),
-(3, 1, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -312,7 +295,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuarios`, `nome`, `login`, `senha`, `tipo`) VALUES
-(1, 'Evandro Vieira', '60943149991', '$2y$10$sBMxOtf/IT7McconQB4EQOq/lVIsJJh2MQg2Yd.uUB7bWtHddfg4y', 'p');
+(1, 'Evandro Vieira', '60943149991', '$2y$10$sBMxOtf/IT7McconQB4EQOq/lVIsJJh2MQg2Yd.uUB7bWtHddfg4y', 'p'),
+(2, 'Isadora', '09780014942', '$2y$10$QGnbHhY.84iVzkbxq4ex2e7nO8Ymz3uYTXfqDvy5WtIYIxJ0j5aeC', 's'),
+(3, 'Guilherme ', '11160757925', '$2y$10$tjqP4L18MfT/w.Lm6B96v.fXRvCZWqZTRMaFmH9qqp9LbZqPHJm9u', 'p');
 
 --
 -- Índices para tabelas despejadas
@@ -329,13 +314,23 @@ ALTER TABLE `alunos`
 -- Índices de tabela `controle`
 --
 ALTER TABLE `controle`
-  ADD PRIMARY KEY (`id_controle`);
+  ADD PRIMARY KEY (`id_controle`),
+  ADD KEY `fk_controle_discTurma` (`id_discTurma`);
 
 --
 -- Índices de tabela `disciplina`
 --
 ALTER TABLE `disciplina`
   ADD PRIMARY KEY (`id_disciplina`);
+
+--
+-- Índices de tabela `disc_turma`
+--
+ALTER TABLE `disc_turma`
+  ADD PRIMARY KEY (`id_discTurma`),
+  ADD KEY `id_disc` (`id_disc`),
+  ADD KEY `id_turma` (`id_turma`),
+  ADD KEY `fk_discTurma_professor` (`id_professor`);
 
 --
 -- Índices de tabela `falta`
@@ -349,16 +344,14 @@ ALTER TABLE `falta`
 -- Índices de tabela `notificacao`
 --
 ALTER TABLE `notificacao`
-  ADD PRIMARY KEY (`id_notificacao`);
+  ADD PRIMARY KEY (`id_notificacao`),
+  ADD KEY `fk_notificacao_falta` (`id_falta`);
 
 --
--- Índices de tabela `prof_turma`
+-- Índices de tabela `professor`
 --
-ALTER TABLE `prof_turma`
-  ADD PRIMARY KEY (`id_profTurma`),
-  ADD KEY `disciplina_id` (`disciplina_id`),
-  ADD KEY `turma_id` (`turma_id`),
-  ADD KEY `professor_id` (`professor_id`);
+ALTER TABLE `professor`
+  ADD PRIMARY KEY (`id_professor`);
 
 --
 -- Índices de tabela `turma`
@@ -386,7 +379,7 @@ ALTER TABLE `alunos`
 -- AUTO_INCREMENT de tabela `controle`
 --
 ALTER TABLE `controle`
-  MODIFY `id_controle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_controle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `disciplina`
@@ -395,10 +388,16 @@ ALTER TABLE `disciplina`
   MODIFY `id_disciplina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de tabela `disc_turma`
+--
+ALTER TABLE `disc_turma`
+  MODIFY `id_discTurma` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `falta`
 --
 ALTER TABLE `falta`
-  MODIFY `id_falta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_falta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `notificacao`
@@ -407,10 +406,10 @@ ALTER TABLE `notificacao`
   MODIFY `id_notificacao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `prof_turma`
+-- AUTO_INCREMENT de tabela `professor`
 --
-ALTER TABLE `prof_turma`
-  MODIFY `id_profTurma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `professor`
+  MODIFY `id_professor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `turma`
@@ -422,7 +421,7 @@ ALTER TABLE `turma`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para tabelas despejadas
@@ -435,19 +434,30 @@ ALTER TABLE `alunos`
   ADD CONSTRAINT `id_turma` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`);
 
 --
+-- Restrições para tabelas `controle`
+--
+ALTER TABLE `controle`
+  ADD CONSTRAINT `controle_ibfk_1` FOREIGN KEY (`id_controle`) REFERENCES `disc_turma` (`id_discTurma`);
+
+--
+-- Restrições para tabelas `disc_turma`
+--
+ALTER TABLE `disc_turma`
+  ADD CONSTRAINT `disc_turma_ibfk_1` FOREIGN KEY (`id_disc`) REFERENCES `disciplina` (`id_disciplina`),
+  ADD CONSTRAINT `disc_turma_ibfk_2` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`),
+  ADD CONSTRAINT `fk_discTurma_professor` FOREIGN KEY (`id_professor`) REFERENCES `professor` (`id_professor`);
+
+--
 -- Restrições para tabelas `falta`
 --
 ALTER TABLE `falta`
-  ADD CONSTRAINT `falta_ibfk_1` FOREIGN KEY (`controle_id`) REFERENCES `controle` (`id_controle`),
-  ADD CONSTRAINT `falta_ibfk_2` FOREIGN KEY (`aluno_id`) REFERENCES `alunos` (`id_alunos`);
+  ADD CONSTRAINT `falta_ibfk_1` FOREIGN KEY (`controle_id`) REFERENCES `controle` (`id_controle`);
 
 --
--- Restrições para tabelas `prof_turma`
+-- Restrições para tabelas `notificacao`
 --
-ALTER TABLE `prof_turma`
-  ADD CONSTRAINT `prof_turma_ibfk_1` FOREIGN KEY (`disciplina_id`) REFERENCES `disciplina` (`id_disciplina`),
-  ADD CONSTRAINT `prof_turma_ibfk_2` FOREIGN KEY (`turma_id`) REFERENCES `turma` (`id_turma`),
-  ADD CONSTRAINT `prof_turma_ibfk_3` FOREIGN KEY (`professor_id`) REFERENCES `usuarios` (`id_usuarios`);
+ALTER TABLE `notificacao`
+  ADD CONSTRAINT `notificacao_ibfk_1` FOREIGN KEY (`id_notificacao`) REFERENCES `falta` (`id_falta`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

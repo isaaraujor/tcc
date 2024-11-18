@@ -11,7 +11,7 @@
 <body>
     <div class="word">
         <h1>Usuário sem permissão de acesso!</h1>
-        <p>Você não possui permissão para acessar esta página. <a href="login">Clique aqui</a> para fazer login.</p>
+        <p>Você não possui permissão para acessar esta página. <a href="dashboard">Clique aqui</a> para voltar.</p>
     </div>
     <div class="img">
         <img src="img/negado.png">
