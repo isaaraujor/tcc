@@ -7,7 +7,7 @@ include_once('./pages/conexao.php');
    if (isset($_GET['categoria_id'])) {
         $categoria_id = $_GET['categoria_id'];
         //busca informações sobre o relacionamento entre professor e turma
-         $stmt = $con->prepare("SELECT  t.numero_turma, t.nome_curso FROM prof_turma pt              
+         $stmt = $con->prepare("SELECT  t.numero_turma, t.nome_curso FROM disc_turma pt              
         LEFT JOIN usuarios p ON pt.professor_id = p.id_usuarios 
                 LEFT JOIN turma t ON pt.turma_id = t.id_turma 
                 LEFT JOIN disciplina m ON pt.disciplina_id = m.id_disciplina

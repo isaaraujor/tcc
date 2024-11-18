@@ -13,8 +13,10 @@ if(!isset($_SESSION['logado'])){
   $pesquisa = $con->prepare('SELECT DISTINCT usuarios.nome,
 disciplina.nome_disciplina,disciplina.id_disciplina
 FROM usuarios
-INNER JOIN prof_turma ON prof_turma.professor_id = usuarios.id_usuarios
-INNER JOIN disciplina ON prof_turma.disciplina_id = disciplina.id_disciplina
+
+INNER JOIN disc_turma ON disc_turma.id_professor = usuarios.id_usuarios
+INNER JOIN disciplina ON disc_turma.id_disc = disciplina.id_disciplina
+
 WHERE usuarios.id_usuarios=:id_usuarios');
    $pesquisa->execute(['id_usuarios' => $id_usuario]);
  //  $pesquisa-> execute();

@@ -78,8 +78,8 @@
     case "userperm":
       include_once("./pages/userperm.php");
       break;
-    case "teste2":
-      include_once("./pages/teste2.php");
+    case "teste12345":
+      include_once("./pages/teste12345.php");
       break;
 
     default:
