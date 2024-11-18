@@ -29,7 +29,7 @@ if(!isset($_SESSION['logado'])){
         .divs-checkbox{
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .divs-checkbox p{
             margin-left: 10px;
@@ -38,7 +38,8 @@ if(!isset($_SESSION['logado'])){
         .divs-checkboxT{
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 40px;
+            margin-left: 20px;
         }
         .divs-checkboxT p{
             margin-right: 10px;
@@ -107,13 +108,36 @@ if(!isset($_SESSION['logado'])){
             <p>353</p>
             <input type="checkbox" name="354" id="turma" value="354">
             <p>354</p>
-
-
-
             </div>
+
+
+
             <div class="divs-checkbox">
                 <input type="checkbox" name="DS" id="disciplina" value="D. Sistemas">
                 <p>D. Sistemas</p>
+            </div>
+
+            <div class="divs-checkboxT">
+            <input type="checkbox" name="151" id="turma" value="151">
+            <p>151</p>
+            <input type="checkbox" name="152" id="turma" value="152">
+            <p>152</p>
+            <input type="checkbox" name="153" id="turma" value="153">
+            <p>153</p>
+            <input type="checkbox" name="251" id="turma" value="251">
+            <p>251</p>
+            <input type="checkbox" name="252" id="turma" value="252">
+            <p>252</p>
+            <input type="checkbox" name="253" id="turma" value="253">
+            <p>253</p>
+            <input type="checkbox" name="351" id="turma" value="351">
+            <p>351</p>
+            <input type="checkbox" name="352" id="turma" value="352">
+            <p>352</p>
+            <input type="checkbox" name="353" id="turma" value="353">
+            <p>353</p>
+            <input type="checkbox" name="354" id="turma" value="354">
+            <p>354</p>
             </div>
 
             <div class="divs-checkbox">
@@ -121,9 +145,55 @@ if(!isset($_SESSION['logado'])){
                 <p>PD Moveis</p>
             </div>
 
+            <div class="divs-checkboxT">
+            <input type="checkbox" name="151" id="turma" value="151">
+            <p>151</p>
+            <input type="checkbox" name="152" id="turma" value="152">
+            <p>152</p>
+            <input type="checkbox" name="153" id="turma" value="153">
+            <p>153</p>
+            <input type="checkbox" name="251" id="turma" value="251">
+            <p>251</p>
+            <input type="checkbox" name="252" id="turma" value="252">
+            <p>252</p>
+            <input type="checkbox" name="253" id="turma" value="253">
+            <p>253</p>
+            <input type="checkbox" name="351" id="turma" value="351">
+            <p>351</p>
+            <input type="checkbox" name="352" id="turma" value="352">
+            <p>352</p>
+            <input type="checkbox" name="353" id="turma" value="353">
+            <p>353</p>
+            <input type="checkbox" name="354" id="turma" value="354">
+            <p>354</p>
+            </div>
+
             <div class="divs-checkbox">
                 <input type="checkbox" name="PDA" id="disciplina" value="Programação de Aplicativos">
                 <p>Programação de Aplicativos</p>
+            </div>
+
+            <div class="divs-checkboxT">
+            <input type="checkbox" name="151" id="turma" value="151">
+            <p>151</p>
+            <input type="checkbox" name="152" id="turma" value="152">
+            <p>152</p>
+            <input type="checkbox" name="153" id="turma" value="153">
+            <p>153</p>
+            <input type="checkbox" name="251" id="turma" value="251">
+            <p>251</p>
+            <input type="checkbox" name="252" id="turma" value="252">
+            <p>252</p>
+            <input type="checkbox" name="253" id="turma" value="253">
+            <p>253</p>
+            <input type="checkbox" name="351" id="turma" value="351">
+            <p>351</p>
+            <input type="checkbox" name="352" id="turma" value="352">
+            <p>352</p>
+            <input type="checkbox" name="353" id="turma" value="353">
+            <p>353</p>
+            <input type="checkbox" name="354" id="turma" value="354">
+            <p>354</p>
             </div>
 
             <div class="divs-checkbox">
@@ -131,14 +201,83 @@ if(!isset($_SESSION['logado'])){
                 <p>IM Sistemas</p>
             </div>
 
+            <div class="divs-checkboxT">
+            <input type="checkbox" name="151" id="turma" value="151">
+            <p>151</p>
+            <input type="checkbox" name="152" id="turma" value="152">
+            <p>152</p>
+            <input type="checkbox" name="153" id="turma" value="153">
+            <p>153</p>
+            <input type="checkbox" name="251" id="turma" value="251">
+            <p>251</p>
+            <input type="checkbox" name="252" id="turma" value="252">
+            <p>252</p>
+            <input type="checkbox" name="253" id="turma" value="253">
+            <p>253</p>
+            <input type="checkbox" name="351" id="turma" value="351">
+            <p>351</p>
+            <input type="checkbox" name="352" id="turma" value="352">
+            <p>352</p>
+            <input type="checkbox" name="353" id="turma" value="353">
+            <p>353</p>
+            <input type="checkbox" name="354" id="turma" value="354">
+            <p>354</p>
+            </div>
+
             <div class="divs-checkbox">
                 <input type="checkbox" name="MDS" id="disciplina" value="Modelagem de Sistemas">
                 <p>Modelagem de Sistemas</p>
             </div>
 
+            <div class="divs-checkboxT">
+            <input type="checkbox" name="151" id="turma" value="151">
+            <p>151</p>
+            <input type="checkbox" name="152" id="turma" value="152">
+            <p>152</p>
+            <input type="checkbox" name="153" id="turma" value="153">
+            <p>153</p>
+            <input type="checkbox" name="251" id="turma" value="251">
+            <p>251</p>
+            <input type="checkbox" name="252" id="turma" value="252">
+            <p>252</p>
+            <input type="checkbox" name="253" id="turma" value="253">
+            <p>253</p>
+            <input type="checkbox" name="351" id="turma" value="351">
+            <p>351</p>
+            <input type="checkbox" name="352" id="turma" value="352">
+            <p>352</p>
+            <input type="checkbox" name="353" id="turma" value="353">
+            <p>353</p>
+            <input type="checkbox" name="354" id="turma" value="354">
+            <p>354</p>
+            </div>
+
             <div class="divs-checkbox">
                 <input type="checkbox" name="PI" id="disciplina" value="Projeto Integrador">
                 <p>Projeto Integrador</p>
+            </div>
+
+            <div class="divs-checkboxT">
+            <input type="checkbox" name="151" id="turma" value="151">
+            <p>151</p>
+            <input type="checkbox" name="152" id="turma" value="152">
+            <p>152</p>
+            <input type="checkbox" name="153" id="turma" value="153">
+            <p>153</p>
+            <input type="checkbox" name="251" id="turma" value="251">
+            <p>251</p>
+            <input type="checkbox" name="252" id="turma" value="252">
+            <p>252</p>
+            <input type="checkbox" name="253" id="turma" value="253">
+            <p>253</p>
+            <input type="checkbox" name="351" id="turma" value="351">
+            <p>351</p>
+            <input type="checkbox" name="352" id="turma" value="352">
+            <p>352</p>
+            <input type="checkbox" name="353" id="turma" value="353">
+            <p>353</p>
+            <input type="checkbox" name="354" id="turma" value="354">
+            <p>354</p>
             </div>
         </div>
 
