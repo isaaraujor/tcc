@@ -57,7 +57,7 @@ if(!isset($_SESSION['logado'])){
     </div>
 <div class="container mt-5">
     <h2>Cadastro de Professor</h2>
-    <form action="/cadastrar-professor" method="POST">
+    <form action="cadprof" method="POST">
         
         <!-- Nome do professor -->
         <div class="mb-3">
@@ -79,207 +79,203 @@ if(!isset($_SESSION['logado'])){
 
 
         <!-- Disciplina que o professor ensina -->
-
         <div class="mb-3">
-            <label for="disciplina" class="form-label">Disciplina</label>
-            <div class="divs-checkbox">
-                <input type="checkbox" name="TDS" id="disciplina" value="Teste de Software">
-                <p>Teste de Software</p>
-            </div>
-            
-            <div class="divs-checkboxT">
-            <input type="checkbox" name="151" id="turma" value="151">
-            <p>151</p>
-            <input type="checkbox" name="152" id="turma" value="152">
-            <p>152</p>
-            <input type="checkbox" name="153" id="turma" value="153">
-            <p>153</p>
-            <input type="checkbox" name="251" id="turma" value="251">
-            <p>251</p>
-            <input type="checkbox" name="252" id="turma" value="252">
-            <p>252</p>
-            <input type="checkbox" name="253" id="turma" value="253">
-            <p>253</p>
-            <input type="checkbox" name="351" id="turma" value="351">
-            <p>351</p>
-            <input type="checkbox" name="352" id="turma" value="352">
-            <p>352</p>
-            <input type="checkbox" name="353" id="turma" value="353">
-            <p>353</p>
-            <input type="checkbox" name="354" id="turma" value="354">
-            <p>354</p>
-            </div>
+    <label for="disciplina" class="form-label">Disciplina</label>
 
+    <!-- Grupo 1 - Teste de Software -->
+    <div class="divs-checkbox">
+        <input type="checkbox" name="TDS" class="disciplina-checkbox" value="Teste de Software">
+        <p>Teste de Software</p>
+    </div>
+    <div class="divs-checkboxT turma-group">
+        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <p>151</p>
+        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <p>152</p>
+        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <p>153</p>
+        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <p>251</p>
+        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <p>252</p>
+        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <p>253</p>
+        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <p>351</p>
+        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <p>352</p>
+        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <p>353</p>
+        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <p>354</p>
+    </div>
 
+    <!-- Grupo 2 - Desenvolvimento de Sistemas -->
+    <div class="divs-checkbox">
+        <input type="checkbox" name="DS" class="disciplina-checkbox" value="D. Sistemas">
+        <p>D. Sistemas</p>
+    </div>
+    <div class="divs-checkboxT turma-group">
+        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <p>151</p>
+        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <p>152</p>
+        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <p>153</p>
+        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <p>251</p>
+        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <p>252</p>
+        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <p>253</p>
+        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <p>351</p>
+        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <p>352</p>
+        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <p>353</p>
+        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <p>354</p>
+    </div>
 
-            <div class="divs-checkbox">
-                <input type="checkbox" name="DS" id="disciplina" value="D. Sistemas">
-                <p>D. Sistemas</p>
-            </div>
+    <!-- Grupo 3 - PD Moveis -->
+    <div class="divs-checkbox">
+        <input type="checkbox" name="PDM" class="disciplina-checkbox" value="PD Moveis">
+        <p>PD Moveis</p>
+    </div>
+    <div class="divs-checkboxT turma-group">
+        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <p>151</p>
+        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <p>152</p>
+        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <p>153</p>
+        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <p>251</p>
+        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <p>252</p>
+        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <p>253</p>
+        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <p>351</p>
+        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <p>352</p>
+        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <p>353</p>
+        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <p>354</p>
+    </div>
 
-            <div class="divs-checkboxT">
-            <input type="checkbox" name="151" id="turma" value="151">
-            <p>151</p>
-            <input type="checkbox" name="152" id="turma" value="152">
-            <p>152</p>
-            <input type="checkbox" name="153" id="turma" value="153">
-            <p>153</p>
-            <input type="checkbox" name="251" id="turma" value="251">
-            <p>251</p>
-            <input type="checkbox" name="252" id="turma" value="252">
-            <p>252</p>
-            <input type="checkbox" name="253" id="turma" value="253">
-            <p>253</p>
-            <input type="checkbox" name="351" id="turma" value="351">
-            <p>351</p>
-            <input type="checkbox" name="352" id="turma" value="352">
-            <p>352</p>
-            <input type="checkbox" name="353" id="turma" value="353">
-            <p>353</p>
-            <input type="checkbox" name="354" id="turma" value="354">
-            <p>354</p>
-            </div>
+    <!-- Grupo 4 - Programação de Aplicativos -->
+    <div class="divs-checkbox">
+        <input type="checkbox" name="PDA" class="disciplina-checkbox" value="Programação de Aplicativos">
+        <p>Programação de Aplicativos</p>
+    </div>
+    <div class="divs-checkboxT turma-group">
+        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <p>151</p>
+        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <p>152</p>
+        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <p>153</p>
+        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <p>251</p>
+        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <p>252</p>
+        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <p>253</p>
+        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <p>351</p>
+        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <p>352</p>
+        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <p>353</p>
+        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <p>354</p>
+    </div>
 
-            <div class="divs-checkbox">
-                <input type="checkbox" name="PDM" id="disciplina" value="PD Moveis">
-                <p>PD Moveis</p>
-            </div>
+    <!-- Grupo 5 - IM Sistemas -->
+    <div class="divs-checkbox">
+        <input type="checkbox" name="IMS" class="disciplina-checkbox" value="IM Sistemas">
+        <p>IM Sistemas</p>
+    </div>
+    <div class="divs-checkboxT turma-group">
+        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <p>151</p>
+        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <p>152</p>
+        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <p>153</p>
+        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <p>251</p>
+        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <p>252</p>
+        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <p>253</p>
+        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <p>351</p>
+        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <p>352</p>
+        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <p>353</p>
+        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <p>354</p>
+    </div>
 
-            <div class="divs-checkboxT">
-            <input type="checkbox" name="151" id="turma" value="151">
-            <p>151</p>
-            <input type="checkbox" name="152" id="turma" value="152">
-            <p>152</p>
-            <input type="checkbox" name="153" id="turma" value="153">
-            <p>153</p>
-            <input type="checkbox" name="251" id="turma" value="251">
-            <p>251</p>
-            <input type="checkbox" name="252" id="turma" value="252">
-            <p>252</p>
-            <input type="checkbox" name="253" id="turma" value="253">
-            <p>253</p>
-            <input type="checkbox" name="351" id="turma" value="351">
-            <p>351</p>
-            <input type="checkbox" name="352" id="turma" value="352">
-            <p>352</p>
-            <input type="checkbox" name="353" id="turma" value="353">
-            <p>353</p>
-            <input type="checkbox" name="354" id="turma" value="354">
-            <p>354</p>
-            </div>
+    <!-- Grupo 6 - Modelagem de Sistemas -->
+    <div class="divs-checkbox">
+        <input type="checkbox" name="MDS" class="disciplina-checkbox" value="Modelagem de Sistemas">
+        <p>Modelagem de Sistemas</p>
+    </div>
+    <div class="divs-checkboxT turma-group">
+        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <p>151</p>
+        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <p>152</p>
+        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <p>153</p>
+        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <p>251</p>
+        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <p>252</p>
+        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <p>253</p>
+        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <p>351</p>
+        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <p>352</p>
+        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <p>353</p>
+        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <p>354</p>
+    </div>
+</div>
 
-            <div class="divs-checkbox">
-                <input type="checkbox" name="PDA" id="disciplina" value="Programação de Aplicativos">
-                <p>Programação de Aplicativos</p>
-            </div>
+<script>
+    // seleciona todos os checkboxes de disciplinas
+    const disciplinas = document.querySelectorAll('.disciplina-checkbox');
 
-            <div class="divs-checkboxT">
-            <input type="checkbox" name="151" id="turma" value="151">
-            <p>151</p>
-            <input type="checkbox" name="152" id="turma" value="152">
-            <p>152</p>
-            <input type="checkbox" name="153" id="turma" value="153">
-            <p>153</p>
-            <input type="checkbox" name="251" id="turma" value="251">
-            <p>251</p>
-            <input type="checkbox" name="252" id="turma" value="252">
-            <p>252</p>
-            <input type="checkbox" name="253" id="turma" value="253">
-            <p>253</p>
-            <input type="checkbox" name="351" id="turma" value="351">
-            <p>351</p>
-            <input type="checkbox" name="352" id="turma" value="352">
-            <p>352</p>
-            <input type="checkbox" name="353" id="turma" value="353">
-            <p>353</p>
-            <input type="checkbox" name="354" id="turma" value="354">
-            <p>354</p>
-            </div>
+    // Itera sobre cada checkbox de disciplina
+    disciplinas.forEach((disciplina, index) => {
+        // seleciona as turmas associadas ao checkbox de disciplina atual
+        const turmaGroup = document.querySelectorAll('.turma-group')[index];
 
-            <div class="divs-checkbox">
-                <input type="checkbox" name="IMS" id="disciplina" value="IM Sistemas">
-                <p>IM Sistemas</p>
-            </div>
-
-            <div class="divs-checkboxT">
-            <input type="checkbox" name="151" id="turma" value="151">
-            <p>151</p>
-            <input type="checkbox" name="152" id="turma" value="152">
-            <p>152</p>
-            <input type="checkbox" name="153" id="turma" value="153">
-            <p>153</p>
-            <input type="checkbox" name="251" id="turma" value="251">
-            <p>251</p>
-            <input type="checkbox" name="252" id="turma" value="252">
-            <p>252</p>
-            <input type="checkbox" name="253" id="turma" value="253">
-            <p>253</p>
-            <input type="checkbox" name="351" id="turma" value="351">
-            <p>351</p>
-            <input type="checkbox" name="352" id="turma" value="352">
-            <p>352</p>
-            <input type="checkbox" name="353" id="turma" value="353">
-            <p>353</p>
-            <input type="checkbox" name="354" id="turma" value="354">
-            <p>354</p>
-            </div>
-
-            <div class="divs-checkbox">
-                <input type="checkbox" name="MDS" id="disciplina" value="Modelagem de Sistemas">
-                <p>Modelagem de Sistemas</p>
-            </div>
-
-            <div class="divs-checkboxT">
-            <input type="checkbox" name="151" id="turma" value="151">
-            <p>151</p>
-            <input type="checkbox" name="152" id="turma" value="152">
-            <p>152</p>
-            <input type="checkbox" name="153" id="turma" value="153">
-            <p>153</p>
-            <input type="checkbox" name="251" id="turma" value="251">
-            <p>251</p>
-            <input type="checkbox" name="252" id="turma" value="252">
-            <p>252</p>
-            <input type="checkbox" name="253" id="turma" value="253">
-            <p>253</p>
-            <input type="checkbox" name="351" id="turma" value="351">
-            <p>351</p>
-            <input type="checkbox" name="352" id="turma" value="352">
-            <p>352</p>
-            <input type="checkbox" name="353" id="turma" value="353">
-            <p>353</p>
-            <input type="checkbox" name="354" id="turma" value="354">
-            <p>354</p>
-            </div>
-
-            <div class="divs-checkbox">
-                <input type="checkbox" name="PI" id="disciplina" value="Projeto Integrador">
-                <p>Projeto Integrador</p>
-            </div>
-
-            <div class="divs-checkboxT">
-            <input type="checkbox" name="151" id="turma" value="151">
-            <p>151</p>
-            <input type="checkbox" name="152" id="turma" value="152">
-            <p>152</p>
-            <input type="checkbox" name="153" id="turma" value="153">
-            <p>153</p>
-            <input type="checkbox" name="251" id="turma" value="251">
-            <p>251</p>
-            <input type="checkbox" name="252" id="turma" value="252">
-            <p>252</p>
-            <input type="checkbox" name="253" id="turma" value="253">
-            <p>253</p>
-            <input type="checkbox" name="351" id="turma" value="351">
-            <p>351</p>
-            <input type="checkbox" name="352" id="turma" value="352">
-            <p>352</p>
-            <input type="checkbox" name="353" id="turma" value="353">
-            <p>353</p>
-            <input type="checkbox" name="354" id="turma" value="354">
-            <p>354</p>
-            </div>
-        </div>
+        // adiciona um event listener para o evento de mudança no checkbox da disciplina
+        disciplina.addEventListener('change', () => {
+            const turmas = turmaGroup.querySelectorAll('.turma');
+            if (disciplina.checked) {
+                // habilita todas as turmas do grupo se a disciplina for marcada
+                turmas.forEach(turma => turma.disabled = false);
+            } else {
+                // desabilita todas as turmas e desmarca-as se a disciplina for desmarcada
+                turmas.forEach(turma => {
+                    turma.disabled = true;
+                    turma.checked = false;
+                });
+            }
+        });
+    });
+</script>
 
         <!-- Senha -->
         <div class="mb-3">

@@ -71,6 +71,11 @@
       include_once("./pages/cadalunos.php");
       break;
 
+    case "cadprof":
+      include_once("./pages/cadprof.php");
+      break;
+
+
     case "acessoneg":
       include_once("./pages/acessoneg.php");
       break;
@@ -78,6 +83,9 @@
     case "userperm":
       include_once("./pages/userperm.php");
       break;
+
+
+
     case "teste12345":
       include_once("./pages/teste12345.php");
       break;

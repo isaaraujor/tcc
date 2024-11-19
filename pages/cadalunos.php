@@ -2,14 +2,14 @@
 include 'conexao.php'; 
 
 $nome = $_POST['nome'];
-$data = $_POST['data'];
+$data_nasc = $_POST['data_nasc'];
 $matricula = $_POST['matricula'];
 $rua = $_POST['rua'];
 $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];
 $cep = $_POST['cep'];
-$resp = $_POST['resp'];
-$contato = $_POST['contato'];
+$nome_resp = $_POST['nome_resp'];
+$contat_resp = $_POST['contat_resp'];
 
 
 $stmt = $con->prepare("SELECT COUNT(*) FROM alunos WHERE nome = :nome ");
@@ -22,14 +22,14 @@ if ($count > 0) {
         $stmt = $con->prepare("INSERT INTO alunos (nome, data_nasc, matricula, rua, bairro, cidade, CEP, nome_resp, contat_resp) VALUES (:nome, :data_nasc, :matricula, :rua, :bairro, :cidade, :CEP, :nome_resp, :contat_resp)");
         $stmt->execute([
             'nome' => $nome,
-            'data_nasc' => $data,
+            'data_nasc' => $data_nasc,
             'matricula' => $matricula,
             'rua' => $rua,
             'bairro' => $bairro,
             'cidade'=> $cidade,
             'CEP' => $cep,
-            'nome_resp' => $resp,
-            'contat_resp' => $contato
+            'nome_resp' => $nome_resp,
+            'contat_resp' => $contat_resp
 
         ]);
         header("location:novoaluno");
