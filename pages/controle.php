@@ -40,19 +40,19 @@ WHERE usuarios.id_usuarios=:id_usuarios');
     <link rel="stylesheet" href="css/cont.css">
     <style>
     .input-negrito {
-        font-weight: bold; /* Aplica negrito ao texto do input */
+        font-weight: bold; 
     }
      .auto-width-input {
             width: auto;
-            min-width: 100px; /* Define uma largura mínima */
-            max-width: 100%; /* Limita a largura máxima ao container */
-            padding: 0.375rem 0.75rem; /* Mantém o padding do Bootstrap */
+            min-width: 100px;
+            max-width: 100%; 
+            padding: 0.375rem 0.75rem; 
         }
          .auto-width-select {
-            width: auto; /* Largura automática */
-            min-width: 150px; /* Define uma largura mínima */
-            padding: 0.375rem 0.75rem; /* Mantém o padding padrão do Bootstrap */
-            display: inline-block; /* Permite que a largura se ajuste */
+            width: auto; 
+            min-width: 150px; 
+            padding: 0.375rem 0.75rem;
+            display: inline-block; 
         }
 </style>
 
@@ -69,18 +69,18 @@ WHERE usuarios.id_usuarios=:id_usuarios');
     <div class="container bg-light p-3 mb-3">
         <h3 class="mb-4">Formulário de Cadastro de Faltas</h3>
         <form method = 'POST' action="chamada_turma">
-            <!-- Grupo 1: Informações do Professor -->
+            
             <fieldset class="border p-3 mb-4">
                 <legend class="w-auto px-2">Informações Disciplina / Turma</legend>
                 
-                <!-- Campo Professor -->
+                
                 <div class="mb-3">
                     <label for="professor" class="form-label">Professor:</label>
                     <input type="text" class="form-control auto-width-input input-negrito" id="professor"  placeholder="Nome do Professor" value="<?php echo $nome ?>" readonly>
                      <input type=hidden name="professor" value="<?php echo $nome ?>">
                 </div>
                   
-                <!-- Campo Matéria -->
+                
                 <div class="mb-3">
                     <label for="categoriaSelect" class="form-label">Disciplina:</label><br>
                     <select id="categoriaSelect" class="form-select auto-width-select" name="disciplina" required>
@@ -103,18 +103,18 @@ WHERE usuarios.id_usuarios=:id_usuarios');
                 </select>
                 </div>
             </fieldset>
-
-            <!-- Grupo 2: Detalhes da Aula -->
+            
+            
             <fieldset class="border p-3 mb-4">
                 <legend class="w-auto px-2">Detalhes da Aula</legend>
                 
-                <!-- Campo Data -->
+                
                 <div class="mb-3">
                     <label for="data" class="form-label">Data:</label></br>
                     <input type="date" class="form-control-sm col-2 auto-width-input " id="data" name="data" required>
                 </div>
                 
-                <!-- Campo Período -->
+                
                 <div class="mb-3">
                     <label for="periodo" class="form-label">Período:</label><br>
                     <select class="form-select auto-width-select" id="periodo" name= "periodo" required>
@@ -124,18 +124,18 @@ WHERE usuarios.id_usuarios=:id_usuarios');
                         <option value="Noturno">Noturno</option>
                     </select>
                 </div>
+
                  <div class="row-md-1">
                     <label for="periodo" class="form-label">Qtde Aulas:</label><br>
                     <input type="text" class="form-control-sm col-1 " id="qtde" name="qtde" required>
                 </div>
             </fieldset>
 
-            <!-- Botão Puxar -->
             <button type="submit" class="btn btn-primary">Puxar</button>
         </form>
     </div>
-
 </body>
+
    <script>
         const categoriaSelect = document.getElementById('categoriaSelect');
         const subcategoriaSelect = document.getElementById('subcategoriaSelect');

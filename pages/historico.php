@@ -4,13 +4,13 @@ if (!isset($_SESSION['logado'])) {
     exit;
 }
 
-// Variáveis de filtro
+
 $data_filtro = isset($_POST['data_filtro']) ? $_POST['data_filtro'] : '';
 $materia_filtro = isset($_POST['materia_filtro']) ? $_POST['materia_filtro'] : '';
 $aluno_filtro = isset($_POST['aluno_filtro']) ? $_POST['aluno_filtro'] : '';
 $turma_filtro = isset($_POST['turma_filtro']) ? $_POST['turma_filtro'] : '';
 
-// Montar a consulta com filtros
+
 $sql_historico = "
     SELECT controle.id_controle, controle.data_cont, controle.turma, controle.periodo, 
     controle.materia, controle.professor, controle.qtde_aula
@@ -18,7 +18,7 @@ $sql_historico = "
     WHERE 1 = 1
 ";
 
-// Adiciona os filtros se estiverem preenchidos
+
 if ($data_filtro) {
     $sql_historico .= " AND controle.data_cont = :data_filtro";
 }
@@ -40,11 +40,11 @@ $sql_historico .= " ORDER BY controle.data_cont DESC";
 
 $historico = $con->prepare($sql_historico);
 
-// Passar os parâmetros de filtro para a consulta
+
 $params = [];
 if ($data_filtro) $params[':data_filtro'] = $data_filtro;
 if ($materia_filtro) $params[':materia_filtro'] = "%$materia_filtro%"; 
-// Usar LIKE para buscar por partes do nome
+
 if ($aluno_filtro) $params[':aluno_filtro'] = $aluno_filtro;
 if ($turma_filtro) $params[':turma_filtro'] = $turma_filtro;
 
@@ -135,12 +135,12 @@ $historico->execute($params);
             <tbody>
                 <?php while ($row = $historico->fetch(PDO::FETCH_ASSOC)) { 
                     $id_controle = $row['id_controle'];
-                    // Consulta para pegar as faltas de cada chamada
+                  
                     $sql_faltas = "SELECT aluno_id, qtde_faltas FROM falta WHERE controle_id = :id_controle";
                     $faltas = $con->prepare($sql_faltas);
                     $faltas->execute(['id_controle' => $id_controle]);
 
-                    // Total de faltas por aluno
+                   
                     $faltas_data = [];
                     while ($falta = $faltas->fetch(PDO::FETCH_ASSOC)) {
                         $faltas_data[] = $falta;
@@ -170,7 +170,7 @@ $historico->execute($params);
                                 <tbody>
                                     <?php
                                     foreach ($faltas_data as $falta) {
-                                        // Consulta para pegar o nome do aluno
+                                       
                                         $sql_aluno = "SELECT nome FROM alunos WHERE id_alunos = :id_aluno";
                                         $aluno = $con->prepare($sql_aluno);
                                         $aluno->execute(['id_aluno' => $falta['aluno_id']]);

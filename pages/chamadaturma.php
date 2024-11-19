@@ -39,25 +39,25 @@ if(!isset($_SESSION['logado'])){
     <link rel="stylesheet" href="css/cont.css">
     <style>
     .input-negrito {
-        font-weight: bold; /* Aplica negrito ao texto do input */
+        font-weight: bold; 
     }
      .auto-width-input {
             width: auto;
-            min-width: 100px; /* Define uma largura mínima */
-            max-width: 100%; /* Limita a largura máxima ao container */
-            padding: 0.375rem 0.75rem; /* Mantém o padding do Bootstrap */
-            display: inline-block; /* Permite que a largura se ajuste */
+            min-width: 100px; 
+            max-width: 100%; 
+            padding: 0.375rem 0.75rem; 
+            display: inline-block;
         }
          .auto-width-select {
-            width: auto; /* Largura automática */
-            min-width: 100px; /* Define uma largura mínima */
-            max-width: 100%; /* Limita a largura máxima ao container */
-            padding: 0.375rem 0.75rem; /* Mantém o padding padrão do Bootstrap */
-            display: inline-block; /* Permite que a largura se ajuste */
+            width: auto; 
+            min-width: 100px; 
+            max-width: 100%; 
+            padding: 0.375rem 0.75rem; 
+            display: inline-block; 
         }
       .input-custom-size {
-            width: 30px;   /* Largura fixa */
-            height: 30px;   /* Altura fixa */
+            width: 30px;   
+            height: 30px;  
         }
         .campo-pequeno {
             width: 50px;
@@ -77,40 +77,48 @@ if(!isset($_SESSION['logado'])){
     <div class="container bg-light p-3 mb-3">
         <h3 class="mb-4">Chamada Turma</h3>
         <form method = 'POST' action="chamada_turma">
-            <!-- Grupo 1: Informações do Professor -->
+           
+
             <fieldset class="border p-3 mb-4">
               <div class="row mb-2">
                 <div class="col-md-auto" >
                     <label for="professor" class="form-label"><b>Professor</b></label><br>
                     <input type="text" class="form-control auto-width-input" id="professor" name="professor" placeholder="Professor" value="<?php echo $nome ?>" readonly>
                 </div>
+
                 <div class="col-md-5">
                     <label for="disciplina" class="form-label"><b>Disciplina</b></label>
                     <input type="text" class="form-control auto-width-input" id="disciplina" name ="disciplina" size="150px" placeholder="Disciplina" value="<?php echo $disciplina ?>" readonly>
                     <input type=hidden name="id_disciplina" value="<?php echo $id_disciplina ?>">
                 </div>
+
           </div>
           <div class="row mb-3">
              <div class="col-md-auto">
                     <label for="turma" class="form-label"><b>Turma</b></label><br>
                     <input type="text" class="form-control w-25" id="turma" name="turma" placeholder="Turma"  value="<?php echo $turma ?>" readonly>
              </div>
+
              <div class="col-md-2">
                     <label for="data" class="form-label"><b>Data</b></label>
                     <input type="date" class="form-control auto-width-input" id="data" name="data" placeholder="Data" value="<?php echo $data ?>"readonly>
                </div>
+
                 <div class="col-md-2">
                     <label for="periodo" class="form-label"><b>Periodo</b></label>
                     <input type="text" class="form-control auto-width-input " id="periodo" name="periodo" placeholder="Data" value="<?php echo $periodo ?>"readonly>
                </div>
+
                 <div class="col-md-1">
                     <label for="periodo" class="form-label"><b>Qtde</b></label>
                     <input type="text" class="form-control " id="qtde" name="qtde" placeholder="Qtde" value="<?php echo $qtdeaulas ?>"readonly>
                </div>
             </div>
+
              <table class="table table-striped table-bordered table-hover w-auto">
         <thead class="thead-dark" align=center>
             <tr>
+
                 <th align=center>Nome Aluno</th>
                 <th>Faltas</th>
             </tr>
@@ -129,6 +137,7 @@ if(!isset($_SESSION['logado'])){
              
               
             ?>
+
             </table>
             <input type=hidden name="ultimo" value="<?php echo $ultimoId ?>">
             <button type="submit" name="btnfaltas" class="btn btn-primary">Enviar Faltas</button>
@@ -182,12 +191,14 @@ if(!isset($_SESSION['logado'])){
     <link rel="stylesheet" href="css/cont.css">
      <style>
     .input-negrito {
-        font-weight: bold; /* Aplica negrito ao texto do input */
+        font-weight: bold; 
     }
     .campo-pequeno {
             width: 30px;
         }
     </style>
+
+
     </head>
          <div class="navb">
     <a href="dashboard">
@@ -199,30 +210,36 @@ if(!isset($_SESSION['logado'])){
      <div class="container bg-light">
         <h3 class="mb-4">Demonstrativo Faltas</h3>
         <form method ='POST' action="chamada_turma">
-            <!-- Grupo 1: Informações do Professor -->
+            
             <fieldset class="border p-2 mb-12">
             <div class="row">
                 <div class="col-md-auto" >
                     <label for="professor" class="form-label"><b>Professor</b></label><br>
                     <input type="text" class="form-control input-negrito" id="professor" placeholder="Professor" value="<?php echo $nome ?>" readonly>
                 </div>
+
+
                 <div class="col-md-5">
                     <label for="disciplina" class="form-label"><b>Disciplina</b></label>
                     <input type="text" class="form-control input-negrito" id="disciplina" name="disciplina" placeholder="Disciplina" value="<?php echo $disciplina ?>" readonly>
                 </div>
+
                <div class="row mb-4 p-md-3">
              <div class="col-md-auto">
                     <label for="turma" class="form-label"><b>Turma</b></label><br>
                     <input type="text" class="form-control w-25 input-negrito" id="turma" name="turma" placeholder="Turma"  value="<?php echo $turma ?>" readonly>
              </div>
+
              <div class="col-md-3">
                     <label for="data" class="form-label"><b>Data</b></label>
                     <input type="date" class="form-control auto-width-input input-negrito" id="data" name="data" placeholder="Data" value="<?php echo $data ?>"readonly>
                </div>
+
                 <div class="col-md-3">
                     <label for="periodo" class="form-label"><b>Periodo</b></label>
                     <input type="text" class="form-control auto-width-input input-negrito " id="periodo" name="periodo" placeholder="Data" value="<?php echo $periodo ?>"readonly>
                </div>
+
                <div class="col-md-1">
                     <label for="periodo" class="form-label"><b>Qtde</b></label>
                     <input type="text" class="form-control auto-width-input input-negrito " id="periodo" name="periodo" placeholder="Data" value="<?php echo $qtdeaulas ?>"readonly>
@@ -333,13 +350,13 @@ if(!isset($_SESSION['logado'])){
     </script>
     <script>
     function arrumaFalta(id) {
-    // Defina as dimensões e a posição da janela
+    
     const largura = 50;
     const altura = 100;
     const esquerda = (screen.width - largura) / 2;
     const topo = (screen.height - altura) / 2;
 
-    // Abre a nova janela e passa o ID do registro como parâmetro na URL
+   
     window.open(
         `formulario_atualizar.html?id=${id}`, 
         "janelaAtualizar", 

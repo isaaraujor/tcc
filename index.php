@@ -84,12 +84,6 @@
       include_once("./pages/userperm.php");
       break;
 
-
-
-    case "teste12345":
-      include_once("./pages/teste12345.php");
-      break;
-
     default:
       include_once("./pages/dashboard.php");
     } 

@@ -7,7 +7,7 @@ if (!isset($_SESSION['logado'])) {
 if (isset($_GET['id'])) {
     $id_controle = $_GET['id'];
     
-    // Buscar os dados do controle
+    
     $sql = "SELECT * FROM controle WHERE id_controle = :id_controle";
     $stmt = $con->prepare($sql);
     $stmt->execute(['id_controle' => $id_controle]);
@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
         die("Controle não encontrado.");
     }
 
-    // Buscar as faltas associadas ao controle
+    
     $sqlFaltas = "SELECT f.*, a.nome 
                   FROM falta f
                   JOIN alunos a ON f.aluno_id = a.id_alunos
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
     $faltas = $stmtFaltas->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Caso o formulário de edição seja enviado
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data_cont = $_POST['data_cont'];
     $turma = $_POST['turma'];
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $periodo = $_POST['periodo'];
     $qtde_aula = $_POST['qtde_aula'];
 
-    // Atualizar o controle
+  
     $updateSql = "
         UPDATE controle
         SET data_cont = :data_cont, turma = :turma, materia = :materia, 
@@ -54,10 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ':id_controle' => $id_controle
     ]);
 
-    // Atualizar as faltas dos alunos
+   
     foreach ($faltas as $falta) {
         $falta_id = $falta['id_falta'];
-        $qtde_faltas = $_POST["qtde_faltas_$falta_id"]; // Pega a quantidade de faltas enviada pelo formulário
+        $qtde_faltas = $_POST["qtde_faltas_$falta_id"]; 
 
         $updateFaltasSql = "
             UPDATE falta 
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ]);
     }
 
-    // Redirecionar após a atualização
+
     header('Location: historico');
     exit;
 }

@@ -59,7 +59,7 @@ if(!isset($_SESSION['logado'])){
     <h2>Cadastro de Professor</h2>
     <form action="cadprof" method="POST">
         
-        <!-- Nome do professor -->
+        
         <div class="mb-3">
             <label for="nome" class="form-label">Nome Completo</label>
             <input type="text" class="form-control" id="nome" name="nome" required>
@@ -70,7 +70,7 @@ if(!isset($_SESSION['logado'])){
             <input type="date" class="form-control" id="data_nasc" name="data_nasc" required>
         </div>
 
-        <!-- Email do professor -->
+        
         <div class="mb-3">
             <label for="login" class="form-label">Login (CPF)</label>
             <input type="login" class="form-control" id="login" name="login" required>
@@ -78,11 +78,11 @@ if(!isset($_SESSION['logado'])){
 
 
 
-        <!-- Disciplina que o professor ensina -->
+       
         <div class="mb-3">
     <label for="disciplina" class="form-label">Disciplina</label>
 
-    <!-- Grupo 1 - Teste de Software -->
+   
     <div class="divs-checkbox">
         <input type="checkbox" name="TDS" class="disciplina-checkbox" value="Teste de Software">
         <p>Teste de Software</p>
@@ -110,7 +110,7 @@ if(!isset($_SESSION['logado'])){
         <p>354</p>
     </div>
 
-    <!-- Grupo 2 - Desenvolvimento de Sistemas -->
+   
     <div class="divs-checkbox">
         <input type="checkbox" name="DS" class="disciplina-checkbox" value="D. Sistemas">
         <p>D. Sistemas</p>
@@ -138,7 +138,7 @@ if(!isset($_SESSION['logado'])){
         <p>354</p>
     </div>
 
-    <!-- Grupo 3 - PD Moveis -->
+    
     <div class="divs-checkbox">
         <input type="checkbox" name="PDM" class="disciplina-checkbox" value="PD Moveis">
         <p>PD Moveis</p>
@@ -166,7 +166,7 @@ if(!isset($_SESSION['logado'])){
         <p>354</p>
     </div>
 
-    <!-- Grupo 4 - Programação de Aplicativos -->
+    
     <div class="divs-checkbox">
         <input type="checkbox" name="PDA" class="disciplina-checkbox" value="Programação de Aplicativos">
         <p>Programação de Aplicativos</p>
@@ -194,7 +194,7 @@ if(!isset($_SESSION['logado'])){
         <p>354</p>
     </div>
 
-    <!-- Grupo 5 - IM Sistemas -->
+   
     <div class="divs-checkbox">
         <input type="checkbox" name="IMS" class="disciplina-checkbox" value="IM Sistemas">
         <p>IM Sistemas</p>
@@ -222,7 +222,7 @@ if(!isset($_SESSION['logado'])){
         <p>354</p>
     </div>
 
-    <!-- Grupo 6 - Modelagem de Sistemas -->
+    
     <div class="divs-checkbox">
         <input type="checkbox" name="MDS" class="disciplina-checkbox" value="Modelagem de Sistemas">
         <p>Modelagem de Sistemas</p>
@@ -252,22 +252,22 @@ if(!isset($_SESSION['logado'])){
 </div>
 
 <script>
-    // seleciona todos os checkboxes de disciplinas
+   
     const disciplinas = document.querySelectorAll('.disciplina-checkbox');
 
-    // Itera sobre cada checkbox de disciplina
+    
     disciplinas.forEach((disciplina, index) => {
-        // seleciona as turmas associadas ao checkbox de disciplina atual
+       
         const turmaGroup = document.querySelectorAll('.turma-group')[index];
 
-        // adiciona um event listener para o evento de mudança no checkbox da disciplina
+        
         disciplina.addEventListener('change', () => {
             const turmas = turmaGroup.querySelectorAll('.turma');
             if (disciplina.checked) {
-                // habilita todas as turmas do grupo se a disciplina for marcada
+                
                 turmas.forEach(turma => turma.disabled = false);
             } else {
-                // desabilita todas as turmas e desmarca-as se a disciplina for desmarcada
+                
                 turmas.forEach(turma => {
                     turma.disabled = true;
                     turma.checked = false;
@@ -277,13 +277,13 @@ if(!isset($_SESSION['logado'])){
     });
 </script>
 
-        <!-- Senha -->
+      
         <div class="mb-3">
             <label for="senha" class="form-label">Senha</label>
             <input type="password" class="form-control" id="senha" name="senha" required>
         </div>
 
-        <!-- Botão de envio -->
+       
         <div class="mb-3">
             <button type="submit" class="btn-tm btn-white">Cadastrar</button>
         </div>
@@ -291,7 +291,7 @@ if(!isset($_SESSION['logado'])){
 </div>
 <div class="omgsocorro"></div>
 
-<!-- Scripts do Bootstrap (local) -->
+
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
