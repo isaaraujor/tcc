@@ -2,6 +2,7 @@
 include_once 'conexao.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $tipo = 'p';
     $nome = $_POST['nome'];
     $data_nascimento = $_POST['data_nascimento'];
     $cpf = $_POST['cpf'];
@@ -12,19 +13,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         $con->beginTransaction();
 
-        $queryProfessor = "INSERT INTO professor (nome, data_nascimento, cpf, senha) VALUES (:nome, :data_nascimento, :cpf, :senha)";
+        $queryUsuarioProf = "INSERT INTO usuarios (nome, login, senha, tipo) VALUES (:nome, :login, :senha, :tipo)";
+        $stmtUsuarioProf = $con->prepare($queryUsuarioProf);
+        $stmtUsuarioProf->execute([
+            ':nome' => $nome,
+            ':login' => $cpf,
+            ':senha' => $senha,
+            ':tipo' => $tipo
+        ]);
+
+        $queryProfessor = "INSERT INTO professor (nome, data_nascimento, cpf) VALUES (:nome, :data_nascimento, :cpf)";
         $stmtProfessor = $con->prepare($queryProfessor);
         $stmtProfessor->execute([
             ':nome' => $nome,
             ':data_nascimento' => $data_nascimento,
-            ':cpf' => $cpf,
-            ':senha' => $senha
+            ':cpf' => $cpf
         ]);
         $idProfessor = $con->lastInsertId(); 
 
 
         $queryInsertDisciplina = "INSERT INTO disciplina (nome_disciplina) VALUES (:nome_disciplina) ON DUPLICATE KEY UPDATE id_disciplina=LAST_INSERT_ID(id_disciplina)";
-        $queryInsertTurma = "INSERT INTO turma (numero_turma) VALUES (:numero_turma) ON DUPLICATE KEY UPDATE id_turma=LAST_INSERT_ID(id_turma)";
+        $queryInsertTurma = "INSERT INTO turma (numero_turma, nome_curso) VALUES (:numero_turma, :nome_curso) ON DUPLICATE KEY UPDATE id_turma=LAST_INSERT_ID(id_turma)";
         $queryDiscTurma = "INSERT INTO disc_turma (id_professor, id_disc, id_turma) VALUES (:id_professor, :id_disc, :id_turma)";
 
         $stmtInsertDisciplina = $con->prepare($queryInsertDisciplina);
@@ -40,8 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           
             if (isset($turmas[$disciplina])) {
                 foreach ($turmas[$disciplina] as $turma) {
-                  
-                    $stmtInsertTurma->execute([':numero_turma' => $turma]);
+                    $nome_curso = 'Informática'; //mudar aqui de alguma forma
+                    $stmtInsertTurma->execute([
+                        ':numero_turma' => $turma,
+                        ':nome_curso' => $nome_curso,
+                    ]);
                     $idTurma = $con->lastInsertId();
 
                   
