@@ -67,13 +67,13 @@ if(!isset($_SESSION['logado'])){
 
         <div class="mb-3">
             <label for="data_nasc" class="form-label">Data de nascimento</label>
-            <input type="date" class="form-control" id="data_nasc" name="data_nasc" required>
+            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
         </div>
 
         
         <div class="mb-3">
-            <label for="login" class="form-label">Login (CPF)</label>
-            <input type="login" class="form-control" id="login" name="login" required>
+            <label for="cpf" class="form-label">Login (CPF)</label>
+            <input type="cpf" class="form-control" id="cpf" name="cpf" required>
         </div>
 
 
@@ -84,176 +84,176 @@ if(!isset($_SESSION['logado'])){
 
    
     <div class="divs-checkbox">
-        <input type="checkbox" name="TDS" class="disciplina-checkbox" value="Teste de Software">
+        <input type="checkbox" name="TDS" class="disciplina[]" value="Teste de Software">
         <p>Teste de Software</p>
     </div>
     <div class="divs-checkboxT turma-group">
-        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <input type="checkbox" name="151" class="turma[]" value="151" disabled>
         <p>151</p>
-        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <input type="checkbox" name="152" class="turma[]" value="152" disabled>
         <p>152</p>
-        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <input type="checkbox" name="153" class="turma[]" value="153" disabled>
         <p>153</p>
-        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <input type="checkbox" name="251" class="turma[]" value="251" disabled>
         <p>251</p>
-        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <input type="checkbox" name="252" class="turma[]" value="252" disabled>
         <p>252</p>
-        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <input type="checkbox" name="253" class="turma[]" value="253" disabled>
         <p>253</p>
-        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <input type="checkbox" name="351" class="turma[]" value="351" disabled>
         <p>351</p>
-        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <input type="checkbox" name="352" class="turma[]" value="352" disabled>
         <p>352</p>
-        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <input type="checkbox" name="353" class="turma[]" value="353" disabled>
         <p>353</p>
-        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <input type="checkbox" name="354" class="turma[]" value="354" disabled>
         <p>354</p>
     </div>
 
    
     <div class="divs-checkbox">
-        <input type="checkbox" name="DS" class="disciplina-checkbox" value="D. Sistemas">
+        <input type="checkbox" name="DS" class="disciplina[]" value="D. Sistemas">
         <p>D. Sistemas</p>
     </div>
     <div class="divs-checkboxT turma-group">
-        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <input type="checkbox" name="151" class="turma[]" value="151" disabled>
         <p>151</p>
-        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <input type="checkbox" name="152" class="turma[]" value="152" disabled>
         <p>152</p>
-        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <input type="checkbox" name="153" class="turma[]" value="153" disabled>
         <p>153</p>
-        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <input type="checkbox" name="251" class="turma[]" value="251" disabled>
         <p>251</p>
-        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <input type="checkbox" name="252" class="turma[]" value="252" disabled>
         <p>252</p>
-        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <input type="checkbox" name="253" class="turma[]" value="253" disabled>
         <p>253</p>
-        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <input type="checkbox" name="351" class="turma[]" value="351" disabled>
         <p>351</p>
-        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <input type="checkbox" name="352" class="turma[]" value="352" disabled>
         <p>352</p>
-        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <input type="checkbox" name="353" class="turma[]" value="353" disabled>
         <p>353</p>
-        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <input type="checkbox" name="354" class="turma[]" value="354" disabled>
         <p>354</p>
     </div>
 
     
     <div class="divs-checkbox">
-        <input type="checkbox" name="PDM" class="disciplina-checkbox" value="PD Moveis">
+        <input type="checkbox" name="PDM" class="disciplina[]" value="PD Moveis">
         <p>PD Moveis</p>
     </div>
     <div class="divs-checkboxT turma-group">
-        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <input type="checkbox" name="151" class="turma[]" value="151" disabled>
         <p>151</p>
-        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <input type="checkbox" name="152" class="turma[]" value="152" disabled>
         <p>152</p>
-        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <input type="checkbox" name="153" class="turma[]" value="153" disabled>
         <p>153</p>
-        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <input type="checkbox" name="251" class="turma[]" value="251" disabled>
         <p>251</p>
-        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <input type="checkbox" name="252" class="turma[]" value="252" disabled>
         <p>252</p>
-        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <input type="checkbox" name="253" class="turma[]" value="253" disabled>
         <p>253</p>
-        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <input type="checkbox" name="351" class="turma[]" value="351" disabled>
         <p>351</p>
-        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <input type="checkbox" name="352" class="turma[]" value="352" disabled>
         <p>352</p>
-        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <input type="checkbox" name="353" class="turma[]" value="353" disabled>
         <p>353</p>
-        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <input type="checkbox" name="354" class="turma[]" value="354" disabled>
         <p>354</p>
     </div>
 
     
     <div class="divs-checkbox">
-        <input type="checkbox" name="PDA" class="disciplina-checkbox" value="Programação de Aplicativos">
+        <input type="checkbox" name="PDA" class="disciplina[]" value="Programação de Aplicativos">
         <p>Programação de Aplicativos</p>
     </div>
     <div class="divs-checkboxT turma-group">
-        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <input type="checkbox" name="151" class="turma[]" value="151" disabled>
         <p>151</p>
-        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <input type="checkbox" name="152" class="turma[]" value="152" disabled>
         <p>152</p>
-        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <input type="checkbox" name="153" class="turma[]" value="153" disabled>
         <p>153</p>
-        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <input type="checkbox" name="251" class="turma[]" value="251" disabled>
         <p>251</p>
-        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <input type="checkbox" name="252" class="turma[]" value="252" disabled>
         <p>252</p>
-        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <input type="checkbox" name="253" class="turma[]" value="253" disabled>
         <p>253</p>
-        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <input type="checkbox" name="351" class="turma[]" value="351" disabled>
         <p>351</p>
-        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <input type="checkbox" name="352" class="turma[]" value="352" disabled>
         <p>352</p>
-        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <input type="checkbox" name="353" class="turma[]" value="353" disabled>
         <p>353</p>
-        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <input type="checkbox" name="354" class="turma[]" value="354" disabled>
         <p>354</p>
     </div>
 
    
     <div class="divs-checkbox">
-        <input type="checkbox" name="IMS" class="disciplina-checkbox" value="IM Sistemas">
+        <input type="checkbox" name="IMS" class="disciplina[]" value="IM Sistemas">
         <p>IM Sistemas</p>
     </div>
     <div class="divs-checkboxT turma-group">
-        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <input type="checkbox" name="151" class="turma[]" value="151" disabled>
         <p>151</p>
-        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <input type="checkbox" name="152" class="turma[]" value="152" disabled>
         <p>152</p>
-        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <input type="checkbox" name="153" class="turma[]" value="153" disabled>
         <p>153</p>
-        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <input type="checkbox" name="251" class="turma[]" value="251" disabled>
         <p>251</p>
-        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <input type="checkbox" name="252" class="turma[]" value="252" disabled>
         <p>252</p>
-        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <input type="checkbox" name="253" class="turma[]" value="253" disabled>
         <p>253</p>
-        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <input type="checkbox" name="351" class="turma[]" value="351" disabled>
         <p>351</p>
-        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <input type="checkbox" name="352" class="turma[]" value="352" disabled>
         <p>352</p>
-        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <input type="checkbox" name="353" class="turma[]" value="353" disabled>
         <p>353</p>
-        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <input type="checkbox" name="354" class="turma[]" value="354" disabled>
         <p>354</p>
     </div>
 
     
     <div class="divs-checkbox">
-        <input type="checkbox" name="MDS" class="disciplina-checkbox" value="Modelagem de Sistemas">
+        <input type="checkbox" name="MDS" class="disciplina[]" value="Modelagem de Sistemas">
         <p>Modelagem de Sistemas</p>
     </div>
     <div class="divs-checkboxT turma-group">
-        <input type="checkbox" name="151" class="turma" value="151" disabled>
+        <input type="checkbox" name="151" class="turma[]" value="151" disabled>
         <p>151</p>
-        <input type="checkbox" name="152" class="turma" value="152" disabled>
+        <input type="checkbox" name="152" class="turma[]" value="152" disabled>
         <p>152</p>
-        <input type="checkbox" name="153" class="turma" value="153" disabled>
+        <input type="checkbox" name="153" class="turma[]" value="153" disabled>
         <p>153</p>
-        <input type="checkbox" name="251" class="turma" value="251" disabled>
+        <input type="checkbox" name="251" class="turma[]" value="251" disabled>
         <p>251</p>
-        <input type="checkbox" name="252" class="turma" value="252" disabled>
+        <input type="checkbox" name="252" class="turma[]" value="252" disabled>
         <p>252</p>
-        <input type="checkbox" name="253" class="turma" value="253" disabled>
+        <input type="checkbox" name="253" class="turma[]" value="253" disabled>
         <p>253</p>
-        <input type="checkbox" name="351" class="turma" value="351" disabled>
+        <input type="checkbox" name="351" class="turma[]" value="351" disabled>
         <p>351</p>
-        <input type="checkbox" name="352" class="turma" value="352" disabled>
+        <input type="checkbox" name="352" class="turma[]" value="352" disabled>
         <p>352</p>
-        <input type="checkbox" name="353" class="turma" value="353" disabled>
+        <input type="checkbox" name="353" class="turma[]" value="353" disabled>
         <p>353</p>
-        <input type="checkbox" name="354" class="turma" value="354" disabled>
+        <input type="checkbox" name="354" class="turma[]" value="354" disabled>
         <p>354</p>
     </div>
 </div>
 
 <script>
    
-    const disciplinas = document.querySelectorAll('.disciplina-checkbox');
+    const disciplinas = document.querySelectorAll('.disciplina');
 
     
     disciplinas.forEach((disciplina, index) => {
