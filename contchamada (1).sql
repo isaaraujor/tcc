@@ -198,8 +198,12 @@ CREATE TABLE `disciplina` (
 --
 
 INSERT INTO `disciplina` (`id_disciplina`, `nome_disciplina`) VALUES
-(1, 'Programação de Aplicativos '),
-(2, 'Teste de Software');
+(1, 'Teste de Software'),
+(2, 'Desenvolvimento de Sistemas'),
+(3, 'PD. Moveis'),
+(4, 'Programação de Aplicativos'),
+(5, 'IM. Sistemas'),
+(6, 'Modelagem de Sistemas');
 
 -- --------------------------------------------------------
 
@@ -271,10 +275,18 @@ CREATE TABLE `turma` (
 --
 
 INSERT INTO `turma` (`id_turma`, `numero_turma`, `nome_curso`) VALUES
-(1, 351, 'Informática'),
-(2, 352, 'Informática'),
-(3, 353, 'Informática'),
-(4, 354, 'Informática');
+(1, 151, 'Informática'),
+(2, 152, 'Informática'),
+(3, 153, 'Informática'),
+(4, 154, 'Informática'),
+(5, 251, 'Informática'),
+(6, 252, 'Informática'),
+(7, 253, 'Informática'),
+(8, 254, 'Informática'),
+(9, 351, 'Informática'),
+(10, 352, 'Informática'),
+(11, 353, 'Informática'),
+(12, 354, 'Informática');
 
 -- --------------------------------------------------------
 

@@ -34,12 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $queryInsertDisciplina = "INSERT INTO disciplina (nome_disciplina) VALUES (:nome_disciplina) ON DUPLICATE KEY UPDATE id_disciplina=LAST_INSERT_ID(id_disciplina)";
         $queryInsertTurma = "INSERT INTO turma (numero_turma, nome_curso) VALUES (:numero_turma, :nome_curso) ON DUPLICATE KEY UPDATE id_turma=LAST_INSERT_ID(id_turma)";
-        $queryDiscTurma = "INSERT INTO disc_turma (id_professor, id_disc, id_turma) VALUES (:id_professor, :id_disc, :id_turma)";
 
         $stmtInsertDisciplina = $con->prepare($queryInsertDisciplina);
         $stmtInsertTurma = $con->prepare($queryInsertTurma);
-        $stmtDiscTurma = $con->prepare($queryDiscTurma);
-
        
         foreach ($disciplinas as $disciplina) {
             
@@ -56,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     ]);
                     $idTurma = $con->lastInsertId();
 
-                  
+                    $queryDiscTurma = "INSERT INTO disc_turma (id_professor, id_disc, id_turma) VALUES (:id_professor, :id_disc, :id_turma)";
+                    $stmtDiscTurma = $con->prepare($queryDiscTurma);
                     $stmtDiscTurma->execute([
                         ':id_professor' => $idProfessor,
                         ':id_disc' => $idDisciplina,
