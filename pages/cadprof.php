@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $con->beginTransaction();
-
+        // Ta Certo
         $queryUsuarioProf = "INSERT INTO usuarios (nome, login, senha, tipo) VALUES (:nome, :login, :senha, :tipo)";
         $stmtUsuarioProf = $con->prepare($queryUsuarioProf);
         $stmtUsuarioProf->execute([
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':senha' => $senha,
             ':tipo' => $tipo
         ]);
-
+        // ta certo
         $queryProfessor = "INSERT INTO professor (nome, data_nascimento, cpf) VALUES (:nome, :data_nascimento, :cpf)";
         $stmtProfessor = $con->prepare($queryProfessor);
         $stmtProfessor->execute([
@@ -31,32 +31,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ]);
         $idProfessor = $con->lastInsertId(); 
 
-
-        $queryInsertDisciplina = "INSERT INTO disciplina (nome_disciplina) VALUES (:nome_disciplina) ON DUPLICATE KEY UPDATE id_disciplina=LAST_INSERT_ID(id_disciplina)";
-        $queryInsertTurma = "INSERT INTO turma (numero_turma, nome_curso) VALUES (:numero_turma, :nome_curso) ON DUPLICATE KEY UPDATE id_turma=LAST_INSERT_ID(id_turma)";
-        $queryDiscTurma = "INSERT INTO disc_turma (id_professor, id_disc, id_turma) VALUES (:id_professor, :id_disc, :id_turma)";
-
-        $stmtInsertDisciplina = $con->prepare($queryInsertDisciplina);
-        $stmtInsertTurma = $con->prepare($queryInsertTurma);
-        $stmtDiscTurma = $con->prepare($queryDiscTurma);
-
-       
         foreach ($disciplinas as $disciplina) {
-            
-            $stmtInsertDisciplina->execute([':nome_disciplina' => $disciplina]);
-            $idDisciplina = $con->lastInsertId();
 
+            $querySelectDisciplina = "SELECT id_disciplina FROM disciplina WHERE nome_disciplina = :disciplina";
+            $stmtSelectDisciplina = $con->prepare($querySelectDisciplina);
+            $stmtSelectDisciplina->bindValue(':disciplina', $disciplina, PDO::PARAM_STR);
+            $stmtSelectDisciplina->execute();
+
+            if ($stmtSelectDisciplina->rowCount() > 0) {
+                while ($row = $stmtSelectDisciplina->fetch(PDO::FETCH_ASSOC)) {
+                    echo "O ID é: " . $row['id_disciplina'] . "<br>";
+                    $idDisciplina = $row['id_disciplina'];
+                }
+            } else {
+                echo "Nenhuma disciplina encontrada";
+            }
           
             if (isset($turmas[$disciplina])) {
                 foreach ($turmas[$disciplina] as $turma) {
-                    $nome_curso = 'Informática'; //mudar aqui de alguma forma
-                    $stmtInsertTurma->execute([
-                        ':numero_turma' => $turma,
-                        ':nome_curso' => $nome_curso,
-                    ]);
-                    $idTurma = $con->lastInsertId();
 
-                  
+                    $querySelectTurma = "SELECT id_turma FROM turma WHERE numero_turma = :turma";
+                    $stmtSelectTurma = $con->prepare($querySelectTurma);
+                    $stmtSelectTurma->bindValue(':turma', $turma, PDO::PARAM_STR);
+                    $stmtSelectTurma->execute();
+        
+                    if ($stmtSelectTurma->rowCount() > 0) {
+                        while ($row = $stmtSelectTurma->fetch(PDO::FETCH_ASSOC)) {
+                            echo "O ID é: " . $row['id_turma'] . "<br>";
+                            $idTurma = $row['id_turma'];
+                        }
+                    } else {
+                        echo "Nenhuma turma encontrada";
+                    }
+
+                    $queryDiscTurma = "INSERT INTO disc_turma (id_professor, id_disc, id_turma) VALUES (:id_professor, :id_disc, :id_turma)";
+                    $stmtDiscTurma = $con->prepare($queryDiscTurma);
                     $stmtDiscTurma->execute([
                         ':id_professor' => $idProfessor,
                         ':id_disc' => $idDisciplina,
