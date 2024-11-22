@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $con->beginTransaction();
-        // Ta Certo
+
         $queryUsuarioProf = "INSERT INTO usuarios (nome, login, senha, tipo) VALUES (:nome, :login, :senha, :tipo)";
         $stmtUsuarioProf = $con->prepare($queryUsuarioProf);
         $stmtUsuarioProf->execute([
@@ -21,13 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':senha' => $senha,
             ':tipo' => $tipo
         ]);
-        // ta certo
-        $queryProfessor = "INSERT INTO professor (nome, data_nascimento, cpf) VALUES (:nome, :data_nascimento, :cpf)";
+        $idUsuario = $con->lastInsertId();
+
+        $queryProfessor = "INSERT INTO professor (nome, data_nascimento, cpf, id_usuario) VALUES (:nome, :data_nascimento, :cpf, :id_usuario)";
         $stmtProfessor = $con->prepare($queryProfessor);
         $stmtProfessor->execute([
             ':nome' => $nome,
             ':data_nascimento' => $data_nascimento,
-            ':cpf' => $cpf
+            ':cpf' => $cpf,
+            ':id_usuario' => $idUsuario
         ]);
         $idProfessor = $con->lastInsertId(); 
 

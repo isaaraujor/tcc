@@ -159,7 +159,7 @@ if (!isset($_SESSION['logado'])) {
                 </div>
 
                 <div class="divs-checkbox">
-                    <input type="checkbox" name="disciplinas[]" class="disciplina" value="" id="disciplina_Programação de Aplicativos">
+                    <input type="checkbox" name="disciplinas[]" class="disciplina" value="Programação de Aplicativos" id="disciplina_Programação de Aplicativos">
                     <p>Programação de Aplicativos</p>
                 </div>
                 <div class="divs-checkboxT turma-group" data-disciplina="Programação de Aplicativos">

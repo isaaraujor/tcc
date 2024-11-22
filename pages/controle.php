@@ -21,7 +21,39 @@ WHERE usuarios.id_usuarios=:id_usuarios');
    $pesquisa->execute(['id_usuarios' => $id_usuario]);
  //  $pesquisa-> execute();
    $nome = $_SESSION['nome'];
-  
+
+
+
+
+
+   $queryPesquisaProfessor = "SELECT id_professor FROM professor WHERE id_usuario = :id_usuario";
+   $stmtPesquisaProfessor = $con->prepare($queryPesquisaProfessor);
+   $stmtPesquisaProfessor->bindValue(':id_usuario', $id_usuario, PDO::PARAM_STR);
+   $stmtPesquisaProfessor->execute();
+   if ($stmtPesquisaProfessor->rowCount() > 0) {
+       while ($row = $stmtPesquisaProfessor->fetch(PDO::FETCH_ASSOC)) {
+           $idProfessor = $row['id_professor']; // ---------------- ID PROFESSOR ----------------
+        }
+    } else {
+        echo "Nenhum professor encontrado";
+    }
+
+
+
+    $queryPesquisaDisciplina = "SELECT id_disc FROM disc_turma WHERE id_professor = :id_professor";
+    $stmtPesquisaDisciplina = $con->prepare($queryPesquisaDisciplina);
+    $stmtPesquisaDisciplina->bindValue(':id_professor', $idProfessor, PDO::PARAM_STR);
+    $stmtPesquisaDisciplina->execute();
+    // if ($stmtPesquisaDisciplina->rowCount() > 0) {
+    //     while ($row = $stmtPesquisaDisciplina->fetch(PDO::FETCH_ASSOC)) {
+    //         $idDisciplina = $row['id_disc']; // ---------------- ID DISCIPLINA ----------------
+    //      }
+    //  } else {
+    //      echo "Nenhuma disciplina encontrada";
+    //  }
+
+
+
 
 
 
@@ -38,6 +70,7 @@ WHERE usuarios.id_usuarios=:id_usuarios');
   <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/cont.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
     .input-negrito {
         font-weight: bold; 
@@ -86,13 +119,33 @@ WHERE usuarios.id_usuarios=:id_usuarios');
                     <select id="categoriaSelect" class="form-select auto-width-select" name="disciplina" required>
                         <option value="">Escolha Disciplina</option>
                         <?php
-                         if ($pesquisa->rowCount() > 0) {
-                           while ($row = $pesquisa->fetch(PDO::FETCH_ASSOC)) {
-                         echo "<option value={$row['id_disciplina']}>{$row['nome_disciplina']}</option>";
-                         }
-                    } else {
-                        echo "<option>Nenhuma opção disponível</option>";
-                    }
+                            if ($stmtPesquisaDisciplina->rowCount() > 0) {
+                                $idAnterior = null;
+                                while ($row = $stmtPesquisaDisciplina->fetch(PDO::FETCH_ASSOC)) {
+                                    $idDisciplina = $row['id_disc']; // ---------------- ID DISCIPLINA ----------------
+
+                                    if ($idDisciplina !== $idAnterior) {
+
+                                        $querySelectDisciplina = "SELECT nome_disciplina FROM disciplina WHERE id_disciplina = :idDisciplina";
+                                        $stmtSelectDisciplina = $con->prepare($querySelectDisciplina);
+                                        $stmtSelectDisciplina->bindValue(':idDisciplina', $idDisciplina, PDO::PARAM_STR);
+                                        $stmtSelectDisciplina->execute();
+                                        if ($stmtSelectDisciplina->rowCount() > 0) {
+                                            while ($row = $stmtSelectDisciplina->fetch(PDO::FETCH_ASSOC)) {
+                                                $nomeDisciplina = $row['nome_disciplina']; // ---------------- NOME DISCIPLINA ----------------
+                                                echo"<option value=$idDisciplina>$nomeDisciplina</option>";
+                                             }
+                                         } else {
+                                             echo "Nenhuma disciplina encontrada";
+                                         }
+
+                                    }
+                            
+                                    $idAnterior = $idDisciplina;
+                                 }
+                             } else {
+                                 echo "Nenhuma disciplina encontrada";
+                             }
                          ?>
                     </select>
                 </div>
@@ -135,35 +188,29 @@ WHERE usuarios.id_usuarios=:id_usuarios');
         </form>
     </div>
 </body>
-
-   <script>
-        const categoriaSelect = document.getElementById('categoriaSelect');
-        const subcategoriaSelect = document.getElementById('subcategoriaSelect');
-
-        categoriaSelect.addEventListener('change', function() {
-            const categoriaId = this.value;
-            if (categoriaId) {
-                fetch(`./buscar_subcategorias.php?categoria_id=${categoriaId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                       console.log('Resposta do servidor:', data); 
-                   //   return JSON.parse(data);
-                       
-                        subcategoriaSelect.innerHTML = "<option value=''>Selecione uma Turma</option>";
-                      
-
-                        data.forEach(subcategoria => {
-                          const  option = document.createElement('option');
-                            option.value = subcategoria.numero_turma;
-                            option.textContent = subcategoria.numero_turma+ " - "+subcategoria.nome_curso;
-                            subcategoriaSelect.appendChild(option);
-                        });
-                    })
-                    .catch(error => console.error('Erro ao carregar subcategorias:', error));
-            } else {
-                subcategoriaSelect.innerHTML = "<option value=''>Selecione uma Turma</option>";
-                subcategoriaSelect.disabled = true;
-            }
+    <script>
+        $(document).ready(function () {
+            $('#categoriaSelect').change(function () {
+                const idDisciplina = $(this).val(); // Obtém o ID da disciplina selecionada
+                if (idDisciplina) {
+                    // Faz uma requisição AJAX para buscar as turmas
+                    $.ajax({
+                        url: 'buscar_turmas.php', // Arquivo PHP que processará a consulta
+                        type: 'POST',
+                        data: { id_disciplina: idDisciplina },
+                        success: function (response) {
+                            // Atualiza o <select> de turmas com as opções recebidas
+                            $('#subcategoriaSelect').html(response);
+                        },
+                        error: function () {
+                            alert('Erro ao buscar as turmas.');
+                        }
+                    });
+                } else {
+                    // Limpa o <select> de turmas se nenhuma disciplina estiver selecionada
+                    $('#subcategoriaSelect').html('<option value="">Selecione uma Turma</option>');
+                }
+            });
         });
     </script>
  </html>
