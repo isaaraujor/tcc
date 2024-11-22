@@ -255,7 +255,8 @@ CREATE TABLE `professor` (
   `id_professor` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `data_nascimento` date NOT NULL,
-  `cpf` varchar(11) NOT NULL
+  `cpf` varchar(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
