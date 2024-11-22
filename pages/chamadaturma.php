@@ -14,7 +14,7 @@ if(!isset($_SESSION['logado'])){
    $nome= $_POST['professor'];
    $periodo = $_POST['periodo'];
    $id_disciplina = $_POST['disciplina'];
-   $turma= $_POST['turma']; 
+   $turma= $_POST['turma'];
    $qtdeaulas = $_POST['qtde'];
 
   $data= $_POST['data'];
@@ -25,10 +25,15 @@ if(!isset($_SESSION['logado'])){
 
   $pesquisa1 = $con->prepare("Select id_alunos,nome,matricula,turma.id_turma From alunos 
                             INNER JOIN turma ON turma.id_turma  = alunos.id_turma
-                            WHERE turma.numero_turma =:turma");
-   $pesquisa1 -> execute(['turma' => $turma]);   
+                            WHERE turma.id_turma =:turma");
+   $pesquisa1 -> execute(['turma' => $turma]);
    $row = $pesquisa1->fetch(PDO::FETCH_ASSOC);
    $idturma= $row['id_turma'];
+
+   $sqlNumTurma = $con->prepare("SELECT numero_turma FROM turma WHERE id_turma = :id_turma");
+   $sqlNumTurma->execute(['id_turma' => $idturma]);
+   $row2 = $sqlNumTurma->fetch(PDO::FETCH_ASSOC);
+   $num_turma = $row2['numero_turma'];
    
 ?>
   <meta charset="UTF-8">
@@ -96,7 +101,7 @@ if(!isset($_SESSION['logado'])){
           <div class="row mb-3">
              <div class="col-md-auto">
                     <label for="turma" class="form-label"><b>Turma</b></label><br>
-                    <input type="text" class="form-control w-25" id="turma" name="turma" placeholder="Turma"  value="<?php echo $turma ?>" readonly>
+                    <input type="text" class="form-control" id="turma" name="turma" placeholder="Turma"  value="<?php echo $num_turma ?>" readonly>
              </div>
 
              <div class="col-md-2">
