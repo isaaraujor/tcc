@@ -328,7 +328,7 @@ if(!isset($_SESSION['logado'])){
         categoriaSelect.addEventListener('change', function() {
             const categoriaId = this.value;
             if (categoriaId) {
-                fetch(`./buscar_subcategorias.php?categoria_id=${categoriaId}`)
+                fetch(./buscar_subcategorias.php?categoria_id=${categoriaId})
                     .then(response => response.json())
                     .then(data => {
                        console.log('Resposta do servidor:', data); 
@@ -361,9 +361,9 @@ if(!isset($_SESSION['logado'])){
 
    
     window.open(
-        `formulario_atualizar.html?id=${id}`, 
+        formulario_atualizar.html?id=${id}, 
         "janelaAtualizar", 
-        `width=${largura},height=${altura},left=${esquerda},top=${topo}`
+        width=${largura},height=${altura},left=${esquerda},top=${topo}
     );
 }
 </script>
