@@ -170,18 +170,16 @@ if(!isset($_SESSION['logado'])){
     $pesquisa_controle = $con ->prepare($sql_cadastro);
     $pesquisa_controle -> execute();
     while($encontrado = $pesquisa_controle->fetch(PDO::FETCH_ASSOC)){
-      if($encontrado['data_cont']== $data && $encontrado['turma']==$turma && $encontrado['periodo']== $periodo && 
-       $encontrado['materia']==$disciplina && 
-       $encontrado['professor']== $nome){
+      if($encontrado['data_cont']== $data && $encontrado['turma']==$turma && $encontrado['periodo']== $periodo){
        $cadastrar= false;
       }
     }
     
 
      if($cadastrar == true){
-     $sql_inserecontrole= "Insert into controle(data_cont,turma,periodo,materia,professor,qtde_aula)Values(:data,:turma,:periodo,:materia,:professor,:qtde)";
+     $sql_inserecontrole= "Insert into controle(data_cont,turma,periodo,qtde_aula)Values(:data,:turma,:periodo,:qtde)";
      $insere_controle = $con ->prepare($sql_inserecontrole);
-     $dados = [':data'=>$data,':turma'=>$turma,':periodo'=>$periodo,':materia'=>$disciplina,':professor'=>$nome,':qtde'=>$qtdeaulas];
+     $dados = [':data'=>$data,':turma'=>$turma,':periodo'=>$periodo,':qtde'=>$qtdeaulas];
      $insere_controle -> execute($dados);
     
      }

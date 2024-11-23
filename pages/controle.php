@@ -19,10 +19,7 @@ INNER JOIN disciplina ON disc_turma.id_disc = disciplina.id_disciplina
 
 WHERE usuarios.id_usuarios=:id_usuarios');
    $pesquisa->execute(['id_usuarios' => $id_usuario]);
- //  $pesquisa-> execute();
    $nome = $_SESSION['nome'];
-
-
 
 
 
@@ -32,32 +29,15 @@ WHERE usuarios.id_usuarios=:id_usuarios');
    $stmtPesquisaProfessor->execute();
    if ($stmtPesquisaProfessor->rowCount() > 0) {
        while ($row = $stmtPesquisaProfessor->fetch(PDO::FETCH_ASSOC)) {
-           $idProfessor = $row['id_professor']; // ---------------- ID PROFESSOR ----------------
+           $idProfessor = $row['id_professor']; 
         }
     } else {
         echo "Nenhum professor encontrado";
     }
-
-
-
     $queryPesquisaDisciplina = "SELECT id_disc FROM disc_turma WHERE id_professor = :id_professor";
     $stmtPesquisaDisciplina = $con->prepare($queryPesquisaDisciplina);
     $stmtPesquisaDisciplina->bindValue(':id_professor', $idProfessor, PDO::PARAM_STR);
     $stmtPesquisaDisciplina->execute();
-    // if ($stmtPesquisaDisciplina->rowCount() > 0) {
-    //     while ($row = $stmtPesquisaDisciplina->fetch(PDO::FETCH_ASSOC)) {
-    //         $idDisciplina = $row['id_disc']; // ---------------- ID DISCIPLINA ----------------
-    //      }
-    //  } else {
-    //      echo "Nenhuma disciplina encontrada";
-    //  }
-
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +102,7 @@ WHERE usuarios.id_usuarios=:id_usuarios');
                             if ($stmtPesquisaDisciplina->rowCount() > 0) {
                                 $idAnterior = null;
                                 while ($row = $stmtPesquisaDisciplina->fetch(PDO::FETCH_ASSOC)) {
-                                    $idDisciplina = $row['id_disc']; // ---------------- ID DISCIPLINA ----------------
+                                    $idDisciplina = $row['id_disc']; 
 
                                     if ($idDisciplina !== $idAnterior) {
 
@@ -132,7 +112,7 @@ WHERE usuarios.id_usuarios=:id_usuarios');
                                         $stmtSelectDisciplina->execute();
                                         if ($stmtSelectDisciplina->rowCount() > 0) {
                                             while ($row = $stmtSelectDisciplina->fetch(PDO::FETCH_ASSOC)) {
-                                                $nomeDisciplina = $row['nome_disciplina']; // ---------------- NOME DISCIPLINA ----------------
+                                                $nomeDisciplina = $row['nome_disciplina']; 
                                                 echo"<option value=$idDisciplina>$nomeDisciplina</option>";
                                              }
                                          } else {
@@ -188,6 +168,7 @@ WHERE usuarios.id_usuarios=:id_usuarios');
         </form>
     </div>
 </body>
+
     <script>
         $(document).ready(function () {
             $('#categoriaSelect').change(function () {
