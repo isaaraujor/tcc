@@ -1,5 +1,4 @@
 <?php
-// Configuração do banco de dados
 include_once('./pages/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_disciplina'])) {

@@ -1,4 +1,5 @@
 <?php
+
 $link = mysqli_connect("localhost", "root", "", "contchamada");
 $turma_arquivo = "354.txt";
 $arquivo = fopen($turma_arquivo,"r");
