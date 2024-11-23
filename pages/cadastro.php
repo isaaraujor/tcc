@@ -51,7 +51,6 @@
                     <div class="input-box">
                         <label>Tipo de usuário</label>
                         <select name="tipo" id="tipo" required>
-                            <option value="prof">Professor</option>
                             <option value="soe">SOE</option>
                         </select>
                     </div>
