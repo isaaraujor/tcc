@@ -51,12 +51,12 @@
       include_once("./pages/historico.php");
       break;
 
-    case "editar_controle":
-      include_once("./pages/editar_controle.php");
+    case "editar":
+      include_once("./pages/editar.php");
       break;
 
-    case "excluir_controle":
-      include_once("./pages/excluir_controle.php");
+    case "excluir":
+      include_once("./pages/excluir.php");
       break;
 
     case "novoaluno":
