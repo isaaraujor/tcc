@@ -172,15 +172,13 @@ WHERE usuarios.id_usuarios=:id_usuarios');
     <script>
         $(document).ready(function () {
             $('#categoriaSelect').change(function () {
-                const idDisciplina = $(this).val(); // Obtém o ID da disciplina selecionada
+                const idDisciplina = $(this).val();
                 if (idDisciplina) {
-                    // Faz uma requisição AJAX para buscar as turmas
                     $.ajax({
-                        url: 'buscar_turmas.php', // Arquivo PHP que processará a consulta
+                        url: 'buscar_turmas.php',
                         type: 'POST',
                         data: { id_disciplina: idDisciplina },
                         success: function (response) {
-                            // Atualiza o <select> de turmas com as opções recebidas
                             $('#subcategoriaSelect').html(response);
                         },
                         error: function () {
@@ -188,7 +186,6 @@ WHERE usuarios.id_usuarios=:id_usuarios');
                         }
                     });
                 } else {
-                    // Limpa o <select> de turmas se nenhuma disciplina estiver selecionada
                     $('#subcategoriaSelect').html('<option value="">Selecione uma Turma</option>');
                 }
             });

@@ -1,4 +1,10 @@
-
+<?php 
+include "conexao.php";
+if(!isset($_SESSION['logado'])){
+    header("Location: acessoneg");
+    exit;
+} 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,6 +14,17 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/dash.css">
+    <style>
+        .btn-sair{
+            color: #CEBEE4;
+            background-color: #2D006C;
+            border: none;
+            border-radius: 8px;
+            font-weight: 70;
+            font-size: medium;
+            margin-left: 15px;
+        }
+    </style>
 </head>
 <?php
  if(!isset($_SESSION['nome'])){
@@ -42,8 +59,10 @@
                 <h2>Olá, <?php echo $_SESSION['nome'] ?></h2>
                 <div class="img-perfil">
                     <img class="user" src="img/download.png">
-                    <?php echo $_SESSION['nome'] ?>
-
+                    <?php echo $_SESSION['nome']; ?>
+                        <a href="logout">
+                        <button class="btn-sair">Sair</button>
+                        </a>
                 </div>
             </nav>
 

@@ -83,6 +83,10 @@
       include_once("./pages/userperm.php");
       break;
 
+    case "logout":
+      include_once("./pages/logout.php");
+      break;
+
     default:
       include_once("./pages/dashboard.php");
     } 
