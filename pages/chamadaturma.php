@@ -102,6 +102,7 @@ if(!isset($_SESSION['logado'])){
              <div class="col-md-auto">
                     <label for="turma" class="form-label"><b>Turma</b></label><br>
                     <input type="text" class="form-control" id="turma" name="turma" placeholder="Turma"  value="<?php echo $num_turma ?>" readonly>
+                    <input type="hidden" name="id_turma" value="<?php echo $idturma ?>">
              </div>
 
              <div class="col-md-2">
@@ -120,29 +121,27 @@ if(!isset($_SESSION['logado'])){
                </div>
             </div>
 
-             <table class="table table-striped table-bordered table-hover w-auto">
-        <thead class="thead-dark" align=center>
-            <tr>
-
-                <th align=center>Nome Aluno</th>
-                <th>Faltas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-               while ($row = $pesquisa1->fetch(PDO::FETCH_ASSOC)) { 
-                  echo "<tr>";
-                  echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
-                  $nome=htmlspecialchars($row['nome']);
-                  echo "<input type='hidden' name= 'nomealuno[]'  value=  '$nome'>";
-                  echo "<input type='hidden' name='idaluno[]' value=".$row['id_alunos'].">";
-                  echo "<td><input type= 'text' name='qtdefaltas[]' class='input-custom-size' value=0 ></td>";
-                  echo "</div>";
-              }
-             
-              
-            ?>
-
+            <table class="table table-striped table-bordered table-hover w-auto">
+                 <thead class="thead-dark" align=center>
+                     <tr>
+         
+                         <th align=center>Nome Aluno</th>
+                         <th>Faltas</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <?php
+                        while ($row = $pesquisa1->fetch(PDO::FETCH_ASSOC)) { 
+                           echo "<tr>";
+                           echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
+                           $nome=htmlspecialchars($row['nome']);
+                           echo "<input type='hidden' name= 'nomealuno[]'  value=  '$nome'>";
+                           echo "<input type='hidden' name='idaluno[]' value=".$row['id_alunos'].">";
+                           echo "<td><input type= 'text' name='qtdefaltas[]' class='input-custom-size' value=0 ></td>";
+                           echo "</div>";
+                       }
+                     ?>
+                 </tbody>
             </table>
             <input type=hidden name="ultimo" value="<?php echo $ultimoId ?>">
             <button type="submit" name="btnfaltas" class="btn btn-primary">Enviar Faltas</button>
@@ -157,15 +156,24 @@ if(!isset($_SESSION['logado'])){
     $nome= $_POST['professor'];
     $id_disciplina = $_POST['id_disciplina'];
     $turma= $_POST['turma'];
+    $id_turma = $_POST['id_turma']; //PEGA ID_TURMA
     $data= $_POST['data'];
+
     $pesquisa = $con->prepare("Select nome_disciplina From disciplina where id_disciplina =:id_disciplina");
     $pesquisa->execute(['id_disciplina' => $id_disciplina]);
     $row = $pesquisa->fetch(PDO::FETCH_ASSOC);
     $disciplina= $row['nome_disciplina'];
-    
+
+    //BUSCA ID_PROFESSOR
+    $sql_busca_id_discProf = $con->prepare("SELECT id_professor FROM professor WHERE nome = :nome_prof");
+    $sql_busca_id_discProf->execute(['nome_prof' => $nome]);
+    $row2 = $sql_busca_id_discProf->fetch(PDO::FETCH_ASSOC);
+    $id_prof = $row2['id_professor'];
+
     //*********************************************************************/
 
     $cadastrar=true;
+
     $sql_cadastro = "SELECT * from controle";
     $pesquisa_controle = $con ->prepare($sql_cadastro);
     $pesquisa_controle -> execute();
@@ -174,14 +182,32 @@ if(!isset($_SESSION['logado'])){
        $cadastrar= false;
       }
     }
+
+    // BUSCA ID_DISC_TURMA
+    $sql_busca_id_discTurma = "SELECT id_discTurma FROM disc_turma WHERE id_disc = :id_disc AND id_turma = :id_turma AND id_professor = :id_prof";
+    $stmt_busca_id_discTurma = $con->prepare($sql_busca_id_discTurma);
+    $stmt_busca_id_discTurma->execute([
+        'id_disc' => $id_disciplina,
+        'id_turma' => $id_turma,
+        'id_prof' => $id_prof
+    ]);
+    $row3 = $stmt_busca_id_discTurma->fetch(PDO::FETCH_ASSOC);
+    $id_discTurma = $row3['id_discTurma'];
+
     
 
      if($cadastrar == true){
-     $sql_inserecontrole= "Insert into controle(data_cont,turma,periodo,qtde_aula)Values(:data,:turma,:periodo,:qtde)";
-     $insere_controle = $con ->prepare($sql_inserecontrole);
-     $dados = [':data'=>$data,':turma'=>$turma,':periodo'=>$periodo,':qtde'=>$qtdeaulas];
-     $insere_controle -> execute($dados);
-    
+     
+        $sql_insert_controle = "INSERT INTO controle (data_cont, turma, periodo, qtde_aula, id_discTurma) VALUES (:data, :turma, :periodo, :qtde, :id_DT)";
+        $stmt_insert_controle = $con->prepare($sql_insert_controle);
+        $stmt_insert_controle->execute([
+            'data' => $data,
+            'turma' => $turma,
+            'periodo' => $periodo,
+            'qtde' => $qtdeaulas,
+            'id_DT' => $id_discTurma
+        ]);
+
      }
 
    ?>
@@ -328,7 +354,7 @@ if(!isset($_SESSION['logado'])){
         categoriaSelect.addEventListener('change', function() {
             const categoriaId = this.value;
             if (categoriaId) {
-                fetch(./buscar_subcategorias.php?categoria_id=${categoriaId})
+                fetch(`./buscar_subcategorias.php?categoria_id=${categoriaId}`)
                     .then(response => response.json())
                     .then(data => {
                        console.log('Resposta do servidor:', data); 
@@ -361,9 +387,9 @@ if(!isset($_SESSION['logado'])){
 
    
     window.open(
-        formulario_atualizar.html?id=${id}, 
+        `formulario_atualizar.html?id=${id}`, 
         "janelaAtualizar", 
-        width=${largura},height=${altura},left=${esquerda},top=${topo}
+        `width=${largura},height=${altura},left=${esquerda},top=${topo}`
     );
 }
 </script>

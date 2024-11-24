@@ -450,7 +450,7 @@ ALTER TABLE `alunos`
 -- Restrições para tabelas `controle`
 --
 ALTER TABLE `controle`
-  ADD CONSTRAINT `controle_ibfk_1` FOREIGN KEY (`id_controle`) REFERENCES `disc_turma` (`id_discTurma`);
+  ADD CONSTRAINT `controle_ibfk_1` FOREIGN KEY (`id_discTurma`) REFERENCES `disc_turma` (`id_discTurma`);
 
 --
 -- Restrições para tabelas `disc_turma`
