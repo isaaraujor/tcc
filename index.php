@@ -86,7 +86,7 @@
     case "logout":
       include_once("./pages/logout.php");
       break;
-
+      
     default:
       include_once("./pages/dashboard.php");
     } 
