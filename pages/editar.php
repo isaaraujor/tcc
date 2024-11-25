@@ -94,49 +94,118 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Controle</title>
-    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/cont.css">
+    <style>
+        .input-negrito {
+            font-weight: bold;
+        }
+        .auto-width-input {
+            width: auto;
+            min-width: 100px;
+            max-width: 100%;
+            padding: 0.375rem 0.75rem;
+        }
+        .auto-width-select {
+            width: auto;
+            min-width: 150px;
+            padding: 0.375rem 0.75rem;
+            display: inline-block;
+        }
+        .container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .form-control, .form-select {
+            font-size: 14px;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="navb">
+    <a href="historico">
+            <img src="img/back.png" height="40px">
+        </a>
+      <h2>EDITAR CONTROLE</h2>
+      <p></p>
+    </div>
     <div class="container">
-        <h2>Editar Controle</h2>
         <form method="post">
-            <label>Data do Controle:</label>
-            <input type="date" name="data_controle" value="<?php echo htmlspecialchars($controle['data_controle']); ?>" required>
+            <div class="mb-3">
+                <label for="data_controle" class="form-label">Data do Controle:</label>
+                <input type="date" id="data_controle" class="form-control auto-width-input input-negrito" name="data_controle" value="<?php echo htmlspecialchars($controle['data_controle']); ?>" required>
+            </div>
 
-            <label>Disciplina:</label>
-            <select name="id_disciplina" required>
-                <?php foreach ($disciplinas as $disc): ?>
-                    <option value="<?php echo $disc['id_disciplina']; ?>" 
-                        <?php echo $controle['id_disciplina'] == $disc['id_disciplina'] ? 'selected' : ''; ?>>
-                        <?php echo htmlspecialchars($disc['nome_disciplina']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+            <div class="mb-3">
+                <label for="id_disciplina" class="form-label">Disciplina:</label>
+                <select id="id_disciplina" class="form-select auto-width-select" name="id_disciplina" required>
+                    <?php foreach ($disciplinas as $disc): ?>
+                        <option value="<?php echo $disc['id_disciplina']; ?>" 
+                            <?php echo $controle['id_disciplina'] == $disc['id_disciplina'] ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($disc['nome_disciplina']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <label>Turma:</label>
-            <select name="id_turma" required>
-                <?php foreach ($turmas as $turma): ?>
-                    <option value="<?php echo $turma['id_turma']; ?>" 
-                        <?php echo $controle['id_turma'] == $turma['id_turma'] ? 'selected' : ''; ?>>
-                        <?php echo htmlspecialchars($turma['numero_turma']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+            <div class="mb-3">
+                <label for="id_turma" class="form-label">Turma:</label>
+                <select id="id_turma" class="form-select auto-width-select" name="id_turma" required>
+                    <?php foreach ($turmas as $turma): ?>
+                        <option value="<?php echo $turma['id_turma']; ?>" 
+                            <?php echo $controle['id_turma'] == $turma['id_turma'] ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($turma['numero_turma']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <label>Aluno:</label>
-            <select name="id_aluno" required>
-                <?php foreach ($alunos as $aluno): ?>
-                    <option value="<?php echo $aluno['id_alunos']; ?>" 
-                        <?php echo $controle['id_aluno'] == $aluno['id_alunos'] ? 'selected' : ''; ?>>
-                        <?php echo htmlspecialchars($aluno['nome']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+            <div class="mb-3">
+                <label for="id_aluno" class="form-label">Aluno:</label>
+                <select id="id_aluno" class="form-select auto-width-select" name="id_aluno" required>
+                    <?php foreach ($alunos as $aluno): ?>
+                        <option value="<?php echo $aluno['id_alunos']; ?>" 
+                            <?php echo $controle['id_aluno'] == $aluno['id_alunos'] ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($aluno['nome']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <label>Faltas:</label>
-            <input type="number" name="faltas" value="<?php echo htmlspecialchars($controle['faltas']); ?>" required min="0">
+            <div class="mb-3">
+                <label for="faltas" class="form-label">Faltas:</label>
+                <input type="number" id="faltas" class="form-control auto-width-input" name="faltas" value="<?php echo htmlspecialchars($controle['faltas']); ?>" required min="0">
+            </div>
 
-            <button type="submit">Salvar Alterações</button>
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
         </form>
     </div>
 </body>
