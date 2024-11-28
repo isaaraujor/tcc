@@ -76,7 +76,7 @@ select{
     background-color:#CEBEE4;
 }
 
-select.active { /* Cor quando clicado vai para o JS */
+select.active {
     background-color: #AA6DFF;;
     color: #2D006C;
     font-weight: 700;

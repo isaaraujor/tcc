@@ -10,10 +10,8 @@ if(!isset($_SESSION['logado'])){
     header("Location: acessoneg");
 }else{
   $id_usuario = $_SESSION['id_usuario'];
-  $pesquisa = $con->prepare('SELECT DISTINCT usuarios.nome,
-disciplina.nome_disciplina,disciplina.id_disciplina
-FROM usuarios
-
+  $pesquisa = $con->prepare('SELECT DISTINCT usuarios.nome,disciplina.nome_disciplina,disciplina.id_disciplina FROM usuarios
+  
 INNER JOIN disc_turma ON disc_turma.id_professor = usuarios.id_usuarios
 INNER JOIN disciplina ON disc_turma.id_disc = disciplina.id_disciplina
 
@@ -56,17 +54,17 @@ WHERE usuarios.id_usuarios=:id_usuarios');
         font-weight: bold; 
     }
      .auto-width-input {
-            width: auto;
-            min-width: 100px;
-            max-width: 100%; 
-            padding: 0.375rem 0.75rem; 
-        }
-         .auto-width-select {
-            width: auto; 
-            min-width: 150px; 
-            padding: 0.375rem 0.75rem;
-            display: inline-block; 
-        }
+        width: auto;
+        min-width: 100px;
+        max-width: 100%; 
+        padding: 0.375rem 0.75rem; 
+    }
+    .auto-width-select {
+        width: auto; 
+        min-width: 150px; 
+        padding: 0.375rem 0.75rem;
+        display: inline-block; 
+    }
 </style>
 
 </head>

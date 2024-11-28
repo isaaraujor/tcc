@@ -61,7 +61,7 @@ if(!isset($_SESSION['logado'])){
                     <img class="user" src="img/download.png">
                     <?php echo $_SESSION['nome']; ?>
                         <a href="logout">
-                        <button class="btn-sair">Sair</button>
+                        <button class="btn-sair" onclick="return confirm('Tem certeza que deseja sair da conta?');">Sair</button>
                         </a>
                 </div>
             </nav>

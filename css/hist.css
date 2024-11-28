@@ -19,3 +19,16 @@ h2{
 .navb img, .navb p{
     margin: 0 50px;
 }
+
+.btn-tm{
+    width: 124px;
+    height: 37px;
+}
+.btn-white{
+    color:#2D006C;
+    background-color: #CEBEE4;
+    border: none;
+    border-radius: 8px;
+    font-weight: 70;
+    font-size: medium;
+}
