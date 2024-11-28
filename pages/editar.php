@@ -29,8 +29,17 @@ try {
         INNER JOIN 
             disc_turma dt ON c.id_discTurma = dt.id_discTurma
         WHERE 
-            c.id_controle = ?
-    ");
+            f.id_falta = ?
+    ",);
+
+    $stmt2 = $con->prepare("
+        SELECT
+            c.data_cont AS data_controle,
+            dt.id_disc AS id_disciplina,
+            dt.id_turma AS id_turma,
+            a.id_alunos AS id_aluno,
+            f.qtde_faltas AS faltas
+    ",);
 
     $stmt->execute([$id]);
     $controle = $stmt->fetch(PDO::FETCH_ASSOC);

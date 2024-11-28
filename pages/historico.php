@@ -10,15 +10,16 @@ try {
     $filtroData = isset($_GET['data']) ? trim($_GET['data']) : '';
     $filtroDisciplina = isset($_GET['disciplina']) ? trim($_GET['disciplina']) : '';
 
-    $query = " SELECT 
-            c.id_controle AS id_controle, c.data_cont AS data_controle, d.nome_disciplina AS disciplina, t.numero_turma AS turma,
-            a.nome AS aluno, f.qtde_faltas AS faltas FROM controle c
-
+    $query = "SELECT
+            f.id_falta AS id_falta, c.data_cont AS data_controle, d.nome_disciplina AS disciplina, t.numero_turma AS turma,
+            a.nome AS aluno, f.qtde_faltas AS faltas FROM falta f
+            
+            INNER JOIN controle c ON c.id_controle = f.controle_id
             INNER JOIN disc_turma dt ON c.id_discTurma = dt.id_discTurma
             INNER JOIN disciplina d ON dt.id_disc = d.id_disciplina
             INNER JOIN turma t ON dt.id_turma = t.id_turma
-            INNER JOIN falta f ON c.id_controle = f.controle_id
             INNER JOIN alunos a ON f.aluno_id = a.id_alunos
+            
             WHERE (:nome = '' OR a.nome LIKE :nomeLike) AND (:turma = '' OR t.numero_turma LIKE :turmaLike)
             AND (:data = '' OR c.data_cont = :data) AND (:disciplina = '' OR d.nome_disciplina LIKE :disciplinaLike)
             ORDER BY c.data_cont DESC";
@@ -181,8 +182,8 @@ try {
                         <td><?php echo htmlspecialchars($row['faltas']); ?></td>
                         <td>
                             <div class="action-buttons">
-                                <a class="btn btn-edit" href="editar?id=<?php echo $row['id_controle']; ?>">Editar</a>
-                                <a class="btn btn-delete" href="excluir?id=<?php echo $row['id_controle']; ?>" onclick="return confirm('Tem certeza que deseja excluir este registro?');">Excluir</a>
+                                <a class="btn btn-edit" href="editar?id=<?php echo $row['id_falta']; ?>">Editar</a>
+                                <a class="btn btn-delete" href="excluir?id=<?php echo $row['id_falta']; ?>" onclick="return confirm('Tem certeza que deseja excluir este registro?');">Excluir</a>
                             </div>
                         </td>
                     </tr>
