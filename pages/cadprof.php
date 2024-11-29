@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         $con->commit();
-        header("location:novoprof");
+        header("location:listar_prof");
     } catch (Exception $e) {
         $con->rollBack();
         echo "Erro ao realizar o cadastro: " . $e->getMessage();

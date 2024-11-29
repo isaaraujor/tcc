@@ -65,7 +65,7 @@ if(!isset($_SESSION['logado'])){
         <div class="tetudo">
             <nav class="dados-prof">
                 <h2>Olá, <?php echo $_SESSION['nome'] ?></h2>
-                <div class="img-perfil">
+                <div>
                     <img class="user" src="img/download.png">
                     <?php echo $_SESSION['nome']; ?>
                         <a href="logout">
