@@ -51,6 +51,23 @@ if(!isset($_SESSION['logado'])){
             <input type="text" class="form-control" id="matricula" name="matricula" required>
         </div>
 
+        <div class="mb-3">
+            <label for="numero_turma" class="form-label">Selecione a Turma</label>
+            <br>
+            <select name="numero_turma" id="numero_turma" required>
+                <?php
+                include 'conexao.php';
+                $stmt = $con->prepare("SELECT numero_turma FROM turma");
+                $stmt->execute();
+                $turmas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($turmas as $turma) {
+                    echo "<option value='{$turma['numero_turma']}'>{$turma['numero_turma']}</option>";
+        }
+        ?>
+    </select>
+        </div>
+
         
         <div class="mb-3">
             <label for="rua" class="form-label">Rua</label>
