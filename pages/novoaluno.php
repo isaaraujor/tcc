@@ -52,7 +52,8 @@ if(!isset($_SESSION['logado'])){
         </div>
 
         <div class="mb-3">
-            <label for="numero_turma" class="form-label">Turma</label>
+            <label for="numero_turma" class="form-label">Selecione a Turma</label>
+            <br>
             <select name="numero_turma" id="numero_turma" required>
                 <?php
                 include 'conexao.php';
