@@ -1,7 +1,3 @@
-<!-- SALVAR NO GIT
- git add .
- git commit -m "mensagem pequena" 
- git push-->
 <?php 
 include 'conexao.php'; 
 

@@ -253,7 +253,7 @@ if (!isset($_SESSION['logado'])) {
         </div>
 
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn-tm btn-white">Cadastrar</button>
         </div>
     </form>
 </div>

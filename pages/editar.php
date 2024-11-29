@@ -12,45 +12,9 @@ if (!$id) {
 }
 
 try {
-    // $stmt = $con->prepare("
-    //     SELECT 
-    //         c.id_controle AS id_controle,
-    //         c.data_cont AS data_controle,
-    //         dt.id_disc AS id_disciplina,
-    //         dt.id_turma AS id_turma,
-    //         a.id_alunos AS id_aluno,
-    //         f.qtde_faltas AS faltas
-    //     FROM 
-    //         controle c
-    //     INNER JOIN 
-    //         falta f ON c.id_controle = f.controle_id
-    //     INNER JOIN 
-    //         alunos a ON f.aluno_id = a.id_alunos
-    //     INNER JOIN 
-    //         disc_turma dt ON c.id_discTurma = dt.id_discTurma
-    //     WHERE 
-    //         f.id_falta = ?
-    // ",);
-
-    $stmt = $con->prepare("
-        SELECT
-            c.id_controle AS id_controle,
-            c.data_cont AS data_controle,
-            dt.id_disc AS id_disciplina,
-            dt.id_turma AS id_turma,
-            a.id_alunos AS id_aluno,
-            f.qtde_faltas AS faltas
-        FROM
-            falta f
-        INNER JOIN
-            controle c ON f.controle_id = c.id_controle
-        INNER JOIN
-            alunos a ON f.aluno_id = a.id_alunos
-        INNER JOIN
-            disc_turma dt ON c.id_discTurma = dt.id_discTurma
-        WHERE
-            f.id_falta = ?
-    ",);
+    $stmt = $con->prepare(" SELECT c.id_controle AS id_controle, c.data_cont AS data_controle, dt.id_disc AS id_disciplina, dt.id_turma AS id_turma, a.id_alunos AS id_aluno, f.qtde_faltas AS faltas
+        FROM falta f INNER JOIN controle c ON f.controle_id = c.id_controle INNER JOIN alunos a ON f.aluno_id = a.id_alunos INNER JOIN disc_turma dt ON c.id_discTurma = dt.id_discTurma
+        WHERE f.id_falta = ?",);
 
     $stmt->execute([$id]);
     $controle = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -80,21 +44,6 @@ try {
         ");
         $stmtUpdateControle->execute([$data_controle, $controle['id_controle']]);
 
-
-
-
-
-
-        // $stmtUpdateDiscTurma = $con->prepare("
-        //     UPDATE disc_turma 
-        //     SET id_disc = ?, id_turma = ?
-        //     WHERE id_discTurma = (
-        //         SELECT id_discTurma FROM controle WHERE id_controle = ?
-        //     )
-        // ");
-        // $stmtUpdateDiscTurma->execute([$id_disciplina, $id_turma, $id]);
-
-
         $STMT_DISCTURMA = $con->prepare("
             SELECT id_discTurma FROM disc_turma
             WHERE id_disc = ? AND id_turma = ?
@@ -108,13 +57,6 @@ try {
             WHERE id_controle = ?
         ");
         $stmtUpdateDiscTurma->execute([$id_discTurma['id_discTurma'], $controle['id_controle']]);
-
-
-
-
-
-
-
 
         $stmtUpdateFaltas = $con->prepare("
             UPDATE falta 

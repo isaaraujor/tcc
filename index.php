@@ -86,6 +86,31 @@
     case "logout":
       include_once("./pages/logout.php");
       break;
+
+    case "listar_alunos":
+        include_once("./pages/listar-alunos.php");
+        break;
+
+    case "listar_prof":
+        include_once("./pages/listar-prof.php");
+        break;
+
+    case "excluir_prof":
+        include_once("./pages/excluir-prof.php");
+        break;
+
+    case "editar_prof":
+        include_once("./pages/editar-prof.php");
+        break;
+
+    case "excluir_aluno":
+        include_once("./pages/excluir-aluno.php");
+        break;
+
+    case "editar_aluno":
+        include_once("./pages/editar-aluno.php");
+        break;
+
       
     default:
       include_once("./pages/dashboard.php");

@@ -51,6 +51,14 @@ if(!isset($_SESSION['logado'])){
                 <a href="novoprof">
                     <button class="btn-tm btn-color btn-align"><img class="imgs-buttons" src="img/adduser.png">Adicionar professor</button>
                 </a>
+
+                <a href="listar_alunos">
+                    <button class="btn-tm btn-color btn-align">Lista de alunos</button>
+                </a>
+
+                <a href="listar_prof">
+                    <button class="btn-tm btn-color btn-align">Lista de professores</button>
+                </a>
             </div>
         </div>
         

@@ -156,7 +156,7 @@ if(!isset($_SESSION['logado'])){
     $nome= $_POST['professor'];
     $id_disciplina = $_POST['id_disciplina'];
     $turma= $_POST['turma'];
-    $id_turma = $_POST['id_turma']; //PEGA ID_TURMA
+    $id_turma = $_POST['id_turma']; 
     $data= $_POST['data'];
 
     $pesquisa = $con->prepare("Select nome_disciplina From disciplina where id_disciplina =:id_disciplina");
@@ -164,7 +164,6 @@ if(!isset($_SESSION['logado'])){
     $row = $pesquisa->fetch(PDO::FETCH_ASSOC);
     $disciplina= $row['nome_disciplina'];
 
-    //BUSCA ID_PROFESSOR
     $sql_busca_id_discProf = $con->prepare("SELECT id_professor FROM professor WHERE nome = :nome_prof");
     $sql_busca_id_discProf->execute(['nome_prof' => $nome]);
     $row2 = $sql_busca_id_discProf->fetch(PDO::FETCH_ASSOC);
@@ -183,7 +182,6 @@ if(!isset($_SESSION['logado'])){
       }
     }
 
-    // BUSCA ID_DISC_TURMA
     $sql_busca_id_discTurma = "SELECT id_discTurma FROM disc_turma WHERE id_disc = :id_disc AND id_turma = :id_turma AND id_professor = :id_prof";
     $stmt_busca_id_discTurma = $con->prepare($sql_busca_id_discTurma);
     $stmt_busca_id_discTurma->execute([
@@ -358,7 +356,6 @@ if(!isset($_SESSION['logado'])){
                     .then(response => response.json())
                     .then(data => {
                        console.log('Resposta do servidor:', data); 
-                   //   return JSON.parse(data);
                        
                         subcategoriaSelect.innerHTML = "<option value=''>Selecione uma Turma</option>";
                       
