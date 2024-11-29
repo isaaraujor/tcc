@@ -13,11 +13,8 @@ if (!$id) {
 try {
     $con->beginTransaction();
 
-    $stmtFalta = $con->prepare("DELETE FROM falta WHERE controle_id = ?");
+    $stmtFalta = $con->prepare("DELETE FROM falta WHERE id_falta = ?");
     $stmtFalta->execute([$id]);
-
-    $stmtControle = $con->prepare("DELETE FROM controle WHERE id_controle = ?");
-    $stmtControle->execute([$id]);
 
     $con->commit();
 
