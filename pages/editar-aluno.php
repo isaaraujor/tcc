@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="navb">
-        <a href="historico">
+        <a href="listar_alunos">
             <img src="img/back.png" alt="Voltar">
         </a>
         <h2>EDITAR ALUNO</h2>

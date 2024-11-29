@@ -308,9 +308,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuarios`, `nome`, `login`, `senha`, `tipo`) VALUES
-(1, 'Evandro Vieira', '60943149991', '$2y$10$sBMxOtf/IT7McconQB4EQOq/lVIsJJh2MQg2Yd.uUB7bWtHddfg4y', 'p'),
-(2, 'Isadora', '09780014942', '$2y$10$QGnbHhY.84iVzkbxq4ex2e7nO8Ymz3uYTXfqDvy5WtIYIxJ0j5aeC', 's'),
-(3, 'Guilherme ', '11160757925', '$2y$10$tjqP4L18MfT/w.Lm6B96v.fXRvCZWqZTRMaFmH9qqp9LbZqPHJm9u', 'p');
+(1, 'Isadora', '09780014942', '$2y$10$QGnbHhY.84iVzkbxq4ex2e7nO8Ymz3uYTXfqDvy5WtIYIxJ0j5aeC', 's'),
+(2, 'Guilherme ', '11160757925', '$2y$10$tjqP4L18MfT/w.Lm6B96v.fXRvCZWqZTRMaFmH9qqp9LbZqPHJm9u', 's');
 
 --
 -- Índices para tabelas despejadas

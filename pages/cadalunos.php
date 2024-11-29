@@ -46,7 +46,7 @@ if ($count > 0) {
             'id_turma' => $id_turma
         ]);
 
-        header("location:novoaluno");
+        header("location:listar_alunos");
     } else {
   
         echo "<script>alert('Número de turma inválido!'); window.location.href = 'novoaluno';</script>";
